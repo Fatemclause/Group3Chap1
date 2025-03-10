@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>CHAP1-LESSON2</title>
+    <style>
+        body {
+            background-color: #ebdaa8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body {
+            overflow-x: hidden;
+        }
+        .ict-text {
+            text-underline-offset: 100%;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            color: #421D1D;
+            margin-top: 20px;
+            padding: 20px 10px;
+        }
+        .header-container {
+            position: relative;
+            width: 100vw;
+            max-height: 300px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .header-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            opacity: 0.3;
+        }
+        .chapter-text {
+            position: absolute;
+            top: 35%;
+            left: 80px;
+            transform: translateY(-50%);
+            color: #3d1c1c;
+            font-size: 4em;
+            text-align: left;
+            width: auto;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            white-space: pre-line;
+        }
+        .chapter-text span {
+            font-weight: bold;
+        }
+
+        .bottom-line {
+            width: 90%;
+            height: 3px;
+            background-color: #2c1515;
+            margin: 30px auto 0;
+        }
+
+        .introduction-container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1.6em;
+            color: #2e1414;
+            background-color: #ebdaa8;
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.5;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: justify;
+        }
+
+        .introduction-container b {
+            font-weight: bold;
+        }
+
+        .introduction-container b a{
+            font-weight: bold;
+            font-size: 1.7em;
+        }
+
+        .indented-first-word {
+            display: inline-block;
+            text-indent: 2em;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .image-container img {
+            width: 100%;  /* Makes the image responsive */
+            max-width: 70%; /* Limits the size to 70% of the container */
+            height: auto;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto; /* Centers the image */
+        }
+
+        .image-title {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2e1414;
+            margin: 10px 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .section-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1.6em;
+            color: #2e1414;
+            background-color: #ebdaa8;
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.5;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: justify;
+            
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2e1414;
+            margin-bottom: 10px;
+        }
+
+        .section-header img {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between; /* Moves buttons to the farthest left and right */
+            width: 90%; /* Adjust this to control spacing */
+            margin: 0 auto; /* Centers the container */
+        }
+
+
+        .custom-button {
+            background-color: #421D1D;
+            color: white;
+            padding: 15px 30px; /* Increased padding for a bigger button */
+            font-size: 1.4em; /* Increased text size */
+            border: none;
+            border-radius: 12px; /* Slightly rounder corners */
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .custom-button:hover {
+            background-color: #2c1515;
+            transform: scale(1.05); /* Slightly enlarges button on hover */
+        }
+
+
+        .observe-header {
+            display: flex;
+            align-items: center;
+            font-size: 1.7em;
+            font-weight: bold;
+            color: #2e1414;
+            margin-bottom: 10px;
+        }
+
+        .observe-icon {
+            width: 80px;
+            height: 80px;
+            margin-right: 15px; /* Adjust spacing between icon and text */
+        }
+
+        @media (max-width: 1200px) {
+            .section-container {
+                font-size: 1.4em; /* Slightly smaller font size for tablets and larger screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-container {
+                font-size: 1.2em; /* Adjusted font size for tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-container {
+                font-size: 1.0em; /* Smaller font size for mobile */
+                padding: 10px;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .observe-header {
+                font-size: 1.5em;
+            }
+            .observe-icon {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .observe-header {
+                font-size: 1.3em;
+            }
+            .observe-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 1480px) {
+            .ict-text {
+                font-size: 1.8em;
+            }
+            .chapter-text {
+                font-size: 2.8em;
+            }
+        }
+
+
+        @media (max-width: 1024px) {
+            .ict-text {
+                font-size: 1.8em;
+            }
+            .chapter-text {
+                font-size: 2.2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ict-text {
+                font-size: 1.5em;
+            }
+            .chapter-text {
+                font-size: 2em;
+                left: 20px;
+                text-align: left;
+            }
+        }
+        @media (max-width: 480px) {
+            .ict-text {
+                font-size: 1.2em;
+            }
+            .chapter-text {
+                font-size: 1.5em;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .button-container {
+                flex-direction: column; /* Stack buttons on smaller screens */
+                align-items: center;
+                gap: 10px; /* Adds space between stacked buttons */
+            }
+
+            .custom-button {
+                width: 90%; /* Make buttons wider on small screens */
+            }
+        }
+        
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 30px;
+            padding: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .instructions-container {
+            width: 90%;  /* Flexible width */
+            max-width: 1200px;  /* Prevent excessive stretching */
+            margin: 20px auto;  /* Center it */
+            padding: 20px;
+            font-size: 1.5em;
+            color: #2e1414;
+            background-color: #ebdaa8;
+            border-radius: 10px;
+            line-height: 1.5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: left;
+            word-wrap: break-word; /* Ensures text wraps properly */
+        }
+
+        /* Tablet size adjustments */
+        @media (max-width: 1024px) {
+            .instructions-container {
+                width: 95%;
+                font-size: 1.3em;
+                padding: 15px;
+            }
+        }
+
+        /* Mobile-friendly layout */
+        @media (max-width: 768px) {
+            .instructions-container {
+                width: 100%;
+                font-size: 1.2em;
+                padding: 15px;
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width: 480px) {
+            .instructions-container {
+                width: 100%;
+                font-size: 1em;
+                padding: 10px;
+            }
+        }
+
+        /* Ultra-small screens (below 350px) */
+        @media (max-width: 350px) {
+            .instructions-container {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+        }
+
+        .hand-tools-section {
+            background-color: #ebdaa8;
+            padding: 2=0px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2e1414;
+            line-height: 1.6;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #421D1D;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        .tool-item {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .tool-description {
+            flex: 1;
+            font-size: 0.9em;
+            margin-right: 50px;
+        }
+
+        .tool-image {
+            width: 360px; /* Fixed width for the image container */
+            height: 360px; /* Fixed height for the image container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff; /* White background to keep it neat */
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            margin-left: 30px;
+        }
+
+        /* Image inside the container */
+        .tool-image img {
+            width: 320px; /* Increased size */
+            height: auto;
+            max-height: 320px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .tool-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .tool-image {
+                width: 200px; 
+                height: 200px;
+                margin-top: 10px;
+            }
+
+            .tool-image img {
+                width: 200px;
+                max-height: 200px;
+            }
+
+            .tool-description {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hand-tools-section {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            .tool-description {
+                font-size: 1.1em;
+            }
+
+            .tool-image {
+                width: 200px;
+                height: 150px;
+            }
+
+            .tool-image img {
+                width: 200px;
+                max-height: 200px;
+            }
+        }
+
+        .table-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .table-container img {
+            width: 100%;
+            max-width: 700px; /* Limits max size */
+            border: 2px solid #D4A76A;
+            border-radius: 5px;
+        }
+
+        .jinjinir-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .jinjinir-container img {
+            width: 100%;
+            max-width: 500px; /* Limits max size */
+            border: 2px solid #D4A76A;
+            border-radius: 5px;
+        }
+
+                /* QR Code Container */
+                .qr-container {
+            text-align: center;
+            width: 100%;
+            max-width: 600px; /* Keeps it contained */
+            margin: 0 auto;
+        }
+
+        /* QR Code Styling */
+        .qr-code {
+            width: 440px; /* Default size for desktop */
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            transition: width 0.3s ease-in-out; /* Smooth resizing */
+        }
+
+        /* Responsive Scaling */
+        @media (min-width: 1440px) { /* Large screens */
+            .qr-code {
+                width: 500px;
+            }
+        }
+
+        @media (min-width: 1600px) { /* Extra large screens */
+            .qr-code {
+                width: 600px;
+            }
+        }
+
+        @media (max-width: 1024px) { /* Laptops/Tablets */
+            .qr-code {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) { /* Tablets */
+            .qr-code {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) { /* Mobile */
+            .qr-code {
+                width: 240px;
+            }
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="ict-text">
+        INFORMATION AND COMMUNICATION TECHNOLOGY - Computer Systems Servicing (CSS)
+    </div>
+    <div class="header-container">
+        <img src="lesson2coverpage.jpg" alt="Header Image" class="header-img">
+        <div class="chapter-text">
+            <span>Lesson 2:</span> <br> Arranging and Checking Hand Tools
+        </div>
+    </div>
+    <div class="bottom-line"></div>
+    <div class="introduction-container">
+        <div class="observe-header">
+            <img src="analysis.png" alt="Icon" class="observe-icon">
+            <b>Looking back to your lesson</b>
+        </div>
+        
+        <p style="margin-top: 80px;">
+            <b> A. TRUE OR FALSE </b>
+        </p>
+        <p><b>Instruction:</b> Write TRUE if the statement is correct and FALSE if it is wrong. Write your answers on a separate sheet of paper. </p>
+        <ol style="padding-bottom: 20px; margin-top: 30px;">
+            <li style="margin-bottom: 15px; margin-left: 60px;">Planning a task does not require identifying the necessary tools or equipment. </li>
+            <li style="margin-bottom: 15px; margin-left: 60px;">Task complexity affects the selection of tools and techniques needed to complete a task. </li>
+            <li style="margin-bottom: 15px; margin-left: 60px;">Simple tasks require specialized tools and advanced skills. </li>
+            <li style="margin-bottom: 15px; margin-left: 60px;">Proper planning helps minimize mistakes and improve productivity. </li>
+            <li style="margin-bottom: 15px; margin-left: 60px;">Examining the workplace for potential hazards is an important part of planning a task. </li>
+            
+        </ol>
+
+        <p style="margin-top: 50px;">
+            <b> B. MULTIPLE CHOICE </b>
+        </p>
+        <p><b>Instruction:</b> Read and understand each question carefully and choose the letter of the correct answer. Write your answers on a sheet of paper </p>
+        <p style="margin-bottom: 15px; margin-left: 60px">6. Which tool is used for hardware to stand on to prevent static electricity from building up? </p>
+        <p style="margin-left: 150px">a. Anti-static mat</p>
+        <p style="margin-left: 150px">b. Hex Driver</p>
+        <p style="margin-left: 150px">c. Philips head screwdriver</p>
+        <p style="margin-left: 150px">d. Wire Cutter</p>
+        
+        <p style="margin-bottom: 15px; margin-left: 60px">7. Which tool is used to loosen or tighten cross-head screws?  </p>
+        <p style="margin-left: 150px">a. Anti-static mat</p>
+        <p style="margin-left: 150px">b. Hex Driver</p>
+        <p style="margin-left: 150px">c. Philips head screwdriver</p>
+        <p style="margin-left: 150px">d. Wire Cutter</p>
+
+        <p style="margin-bottom: 15px; margin-left: 60px">8. Which tool is sometimes called a nut driver? It is used to tighten nuts in the same way that a screwdriver tightens screws?  </p>
+        <p style="margin-left: 150px">a. Anti-static mat</p>
+        <p style="margin-left: 150px">b. Hex Driver</p>
+        <p style="margin-left: 150px">c. Philips head screwdriver</p>
+        <p style="margin-left: 150px">d. Wire Cutter</p>
+
+        <p style="margin-bottom: 15px; margin-left: 60px">9. Which tool is used to strip and cut wires?  </p>
+        <p style="margin-left: 150px">a. Anti-static mat</p>
+        <p style="margin-left: 150px">b. Hex Driver</p>
+        <p style="margin-left: 150px">c. Philips head screwdriver</p>
+        <p style="margin-left: 150px">d. Wire Cutter</p>
+
+        <p style="margin-bottom: 15px; margin-left: 60px">10. Which tool is used to retrieve parts from location that are too small for your hand to fit?  </p>
+        <p style="margin-left: 150px">a. Part Retriever</p>
+        <p style="margin-left: 150px">b. Lint-free Cloth</p>
+        <p style="margin-left: 150px">c. Cable ties</p>
+        <p style="margin-left: 150px">d. Flathead screwdriver</p>
+
+    </div>
+    <div class="bottom-line"></div>
+
+    <div class="section-container">
+        <div class="section-header">
+            <img src="activitylist.png" alt="Question Icon">
+            Activity
+        </div>
+        <br>
+        <b style="font-size: 1.1em;">Activity Instruction:</b>
+        <ol>
+            <li>Imagine you are about to complete a task that requires various hand tools (e.g., fixing a broken chair, assembling a machine, or repairing a device).</li>
+            <li style="margin-top: 15px;">Think about how you would find and choose the right tools efficiently</li>
+            <li style="margin-top: 15px;">Now, picture using a damaged or rusty tool—how could it affect your work and safety?</li>
+        </ol> <br>
+        <b style="font-size: 1.1em;">Guide Questions:</b>
+        <ul>
+            <li>What problems might arise if tools are disorganized?</li>
+            <li style="margin-top: 15px;">Why is it important to check tools before using them?</li>
+            <li style="margin-top: 15px;">How does tool maintenance contribute to work quality and productivity?</li>
+        </ul>
+
+    </div>
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="conversation.png" alt="Question Icon">
+            What I need to know?
+        </div>
+        <br>
+        <b style="font-size: 1.3em;">Objectives:</b>
+        <br> <br>
+        <span class="indented-first-word">At the end of the lesson the student should be able to:</span>    
+        <ul></ul>
+        <ul style="font-size: 1.0em;">
+            <li> Identify appropriate methods to arrange hand tools based on their type, purpose, and frequency of use.</li><br>
+            
+            <li> Demonstrate proper inspection and organization of hand tools to ensure accessibility and maintenance efficiency.</li><br>
+            
+            <li> Show demonstration of documenting the inspection process of arranging and checking the specified hand tool. </li>
+
+            <li> Value the role of identifying and labelling defective tools in promoting a culture of safety and responsibility </li>
+            
+        </ul>
+        
+        </ul>
+    </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="content.png" alt="Lightbulb Icon">
+            What to know
+        </div>
+        <div class="content-section">
+            <h2 style="font-size: 1.3em; margin-top: 60px;">Arranging and Checking Hand Tools</h2>
+            
+            <p style="margin-top: 30px;"><span class="indented-first-word"><b>Proper use and maintenance of hand tools</b></span> is essential in a workplace to keep the optimum conditions of physical properties at acceptable levels. The learner should be familiar in managing and upholding hand tools to extend the use in lifespan and ensure the safety of learners from using the tools, its physical properties and the environment.</p>
+        
+            <h4>PROPER USE OF TOOLS</h4>
+            <p> The proper use of troubleshooting tools in a toolkit should be properly observed by technicians when repairing a computer</p>
+        
+            <h3>Proper use of Eletro-static Devices (ESD) Tools</h3>
+            <div class="tool-item">
+                <div class="tool-description">
+                    <p style="text-justify: auto;">The purpose of an antistatic wrist strap is to equalize the electrical charge between you and the equipment. The antistatic wrist strap is a conductor that connects your body to the equipment that you are working on. When static electricity builds up in your body, the connection made by the wrist strap to the equipment, or ground, channels the electricity through the wire that connects the strap</p>
+                </div>
+                <div class="tool-image">
+                    <img src="asws1.jpeg" alt="Anti-static wrist strap">
+                </div>
+            </div>
+            <p>The wrist strap has two parts and is easy to wear: </p>
+            <ol>
+                <li>Wrap the strap around your wrist and secure it using the snap or Velcro. The metal on the back of the wrist strap must remain in contact with your skin at all times.</i></li>
+                <li style="margin-top: 10px;">Snap the connector at the end of the wire to the wrist strap, and connect the other end either to the equipment or to the same grounding point that the antistatic mat is connected to. The metal skeleton of the case is a good place to connect the wire. When connecting the wire to equipment that you are working on, choose an unpainted metal surface. A painted surface does not conduct the electricity as well as unpainted metal.</li>
+            </ol> <br>
+            <div class="tool-item">
+                <div class="tool-description">
+                    <p style="text-justify: auto;">An antistatic mat is slightly conductive. It works by drawing static electricity away from a component and transferring it safely from equipment to a grounding point:</p>
+                </div>
+                
+                <div class="tool-image">
+                    <img src="caselaydown.jpeg" alt="Anti-static wrist strap">
+                </div>
+            </div>
+            <ol>
+                <li>Lay the mat on the workspace next to or under the computer case.</i></li>
+                <li style="margin-top: 10px;">Clip the mat to the case to provide a grounded surface on which you can place parts as you remove them from the system.</li>
+            </ol>
+            <p style="margin-top: 60px;">Reducing the potential for ESD reduces the likelihood of damage to delicate circuits or components.</p>
+        </div>
+    </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="content-section">
+            <h3>Proper use of Hand Tools</h3>
+
+            <p style="margin-top: 30px;"><span class="indented-first-word"><b>A technician</b></span> is essential in a workplace to keep the optimum conditions of physical properties at acceptable levels. This topic covers many of the various hand tools used when repairing computers.</p>
+        
+            
+            <div class="tool-item">
+                <div class="tool-description">
+                    <h3 style="margin-top: 60px;">Screws</h3>
+                    <p style="text-justify: auto;">Match each screw with the proper screwdriver. Place the tip of the screwdriver on the head of the screw. Turn the screwdriver clockwise to tighten the screw and counter clockwise to loosen the screw.
+                        Screws can become stripped if you over-tighten them with a screwdriver. A stripped screw, may get stuck in the screw hole, or it may not tighten firmly. Discard stripped screws.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-item">
+                <div class="tool-description">
+                    <h3 style="margin-top: 60px;">Flat screwdriver</h3>
+                    <p style="text-justify: auto;">Use a flat head screwdriver when you are working with a slotted screw. Do not use a flat head screwdriver to remove a Phillips head screw. Never use a screwdriver as a pry bar. If you cannot remove a component, check to see if there is a clip or latch that is securing the component in place.
+                    </p>
+                    <p><b>CAUTION:</b> If excessive force is needed to remove or add a component, something is probably wrong. Take a second look to make sure that you have not missed a screw or a locking clip that is holding the component in place. Refer to the device manual or diagram for additional information.</p>
+                </div>
+
+                <div class="tool-image">
+                    <img src="flatheadsc.jpeg" alt="Anti-static wrist strap">
+                </div>
+            </div>
+
+            <div class="tool-item">
+                <div class="tool-description">
+                    <h3 style="margin-top: 60px;">Phillips head screwdriver</h3>
+                    <p style="text-justify: auto;">Use a Phillips head screwdriver with crosshead screws. Do not use this type of screwdriver to puncture anything. This will damage the head of the screwdriver.
+                    </p>
+                </div>
+
+                <div class="tool-image">
+                    <img src="matching_screw.jpeg" alt="Anti-static wrist strap">
+                </div>
+            </div>
+
+            <div class="tool-item">
+                <div class="tool-description">
+                    <h3 style="margin-top: 60px;">Hex screwdriver</h3>
+                    <p style="text-justify: auto;">Use a hex driver to loosen and tighten bolts that have a hexagonal (six-sided) head. Hex bolts should not be over-tightened because the threads of the bolts can be stripped. Do not use a hex driver that is too large for the bolt that you are using.
+                    </p>
+                    <p><b>CAUTION:</b> Some tools are magnetized. When working around electronic devices, be sure that the tools you are using have not been magnetized. Magnetic fields can be harmful to data stored on magnetic media. Test your tool by touching the tool with a screw. If the screw is attracted to the tool, do not use the tool.</p>
+                </div>
+
+                <div class="tool-image">
+                    <img src="hexsc.jpeg" alt="Anti-static wrist strap">
+                </div>
+            </div>
+
+            <div class="tool-item">
+                <div class="tool-description">
+                    <h3 style="margin-top: 60px;">Part retriever, Needle-nose pliers, or tweezers</h3>
+                    <p style="text-justify: auto;">The part retriever, needle-nose pliers, and tweezers can be used to place and retrieve parts that may be hard to reach with your fingers. Do not scratch or hit any components when using these tools.
+                    </p>
+                    <p><b>CAUTION:</b> Pencils should not be used inside the computer to change the setting of switches or to pry off jumpers. The pencil lead can act as a conductor and may damage the computer components.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="content-section">
+            <h3>Proper Use of Cleaning Materials </h3>
+
+            <p style="margin-top: 30px;"><span class="indented-first-word"><b>Keeping</b></span> computers clean inside and out is a vital part of a maintenance program. Dirt can cause problems with the physical operation of fans, buttons, and other mechanical components. On electrical components, an excessive build-up of dust will act like an insulator and trap the heat. This insulation will impair the ability of heat sinks and cooling fans to keep components cool, causing chips and circuits to overheat and fail. </p>
+            <p><b>CAUTION:</b> When compressed air is used to clean inside the computer, the air should be blown around the components with a minimum distance of four inches from the nozzle. The power supply and the fan should be cleaned from the back of the case. And Before cleaning any device, turn it off and unplug the device from the power source.</p>
+
+            <div class="tool-item">
+                <div class="tool-description">
+                    <h3 style="margin-top: 60px;">Computer Cases and Monitors</h3>
+                    <p style="text-justify: auto;">Clean computer cases and the outside of monitors with a mild cleaning solution on a damp, lint-free cloth. Mix one drop of dishwashing liquid with four ounces of water to create the cleaning solution. If any water drips inside the case, allow enough time for the liquid to dry before powering on the computer. 
+                    </p>
+                </div>
+                <div class="tool-image">
+                    <img src="cleaningpc.jpeg" alt="Anti-static wrist strap">
+                </div>
+            </div>
+            
+            <div class="tool-item">
+                <div class="tool-description">
+                    <h3 style="margin-top: 60px;">LCD Screens</h3>
+                    <p style="text-justify: auto;">Do not use ammoniated glass cleaners or any other solution on an LCD screen, unless the cleaner is specifically designed for the purpose. Harsh chemicals will damage the coating on the screen. There is no glass protecting these screens, so be gentle when cleaning them and do not press firmly on the screen.
+                    </p>
+                </div>
+
+                <div class="tool-image">
+                    <img src="cleaninglcd.jpeg" alt="Anti-static wrist strap">
+                </div>
+            </div>
+
+            <div class="tool-item">
+                <div class="tool-description">
+                    <h3 style="margin-top: 60px;">CRT Screens</h3>
+                    <p style="text-justify: auto;">To clean the screens of CRT monitors, dampen a soft, clean, lint-free cloth with distilled water and wipe the screen from top to bottom. Then use a soft, dry cloth to wipe the screen and remove any streaking after you have cleaned the monitor. Clean dusty components with a can of compressed air. Compressed air does not cause electrostatic build-up on components. Make sure that you are in a well-ventilated area before blowing the dust out of the computer. A best practice is to wear a dust mask to make sure that you do not breathe in the dust particles. 
+                        Blow out the dust using short bursts from the can. Never tip the can or use the compressed air can upside down. Do not allow the fan blades to spin from the force of the compressed air. Hold the fan in place. Fan motors can be ruined from spinning when the motor is not turned on.
+                        
+                    </p>
+                </div>
+
+                <div class="tool-image">
+                    <img src="cleaningcrt.jpeg" alt="Anti-static wrist strap">
+                </div>
+            </div>
+
+            <div class="tool-item">
+                <div class="tool-description">
+                    <h3 style="margin-top: 60px;">Component contacts</h3>
+                    <p style="text-justify: auto;">Clean the contacts on components with isopropyl alcohol. Do not use rubbing alcohol. Rubbing alcohol contains impurities that can damage contacts. Make sure that the contacts do not collect any lint from the cloth or cotton swab. Blow any lint off the contacts with compressed air before reinstallation.
+                    </p>
+                </div>
+            </div>
+
+            <div class="tool-item">
+                <div class="tool-description">
+                    <h3 style="margin-top: 60px;">Keyboard</h3>
+                    <p style="text-justify: auto;">Clean a desktop keyboard with compressed air or a small, hand-held vacuum cleaner with a brush attachment. 
+                    </p>
+                    <p><b>CAUTION:</b> Never use a standard vacuum cleaner inside a computer case. The plastic parts of the vacuum cleaner can build up static electricity and discharge to the components. Use only a vacuum approved for electronic components.</p>
+                </div>
+                <div class="tool-image">
+                    <img src="cleaningkeyboard.jpeg" alt="Anti-static wrist strap">
+                </div>
+            </div>
+
+            <div class="tool-item">
+                <div class="tool-description">
+                    <h3 style="margin-top: 60px;">Mouse</h3>
+                    <p style="text-justify: auto;">Use glass cleaner and a soft cloth to clean the outside of the mouse. Do not spray glass cleaner directly on the mouse. If cleaning a ball mouse, you can remove the ball and clean it with glass cleaner and a soft cloth. Wipe the rollers clean inside the mouse with the same cloth. Do not spray any liquids inside the mouse 
+                    </p>
+                </div>
+                <div class="tool-image">
+                    <img src="cleaningmouse.jpeg" alt="Anti-static wrist strap">
+                </div>
+            </div>
+            <br> <br>
+            <h3>How to determine the defective and non-defective tool? </h3>
+            <h4>Visual Inspection</h4>  
+            <p>-The defective and non-defective tools are easily identified through visual inspection. Defective and non-defective tools are described by its physical appearance such as dullness, sharpness, dismantled parts and more.</p>
+            <h4>Functionality</h4>
+            <p>-Another way to determine the defective and non-defective tools is by checking or assessing if the tool is already susceptible to wear and tear or does it exceed to its service life already.</p>
+            <h4>Performance</h4>
+            <p>-Checking the performance of the tool is one way also to determine defective and non-defective tools. Checking of the performance of a tool is not only done during the actual use, it should also be done before and after to determine whether the tool is still worthy to be used.</p>
+            <br>
+            <h3>What should be done if the tool is found defective?</h3>
+            <ul>
+                <li>If a tool is defective, remove it from service, and tag it clearly "Out of service for repair.”</li>
+                <li style="margin-top: 10px;">If tools are defective, attach an Out of Service tag with signature and date.</li>
+                <li style="margin-top: 10px;">Replace damaged equipment immediately, do not use defective tools "temporarily”</li>
+                <li style="margin-top: 10px;">Have tools repaired by a qualified person, do not attempt field repairs.</li>
+                <li style="margin-top: 10px;">To ensure safe use of hand tools, do not use a defective tool, inspect tools prior to use and verify that tools are repaired</li>
+            </ul> <br>
+            <p><b>Defective tools</b> can cause serious and painful injuries. If a tool is defective in some ways, do not use it. Once defective hand tools are identified, separate it and have it labelled “defective” or “faulty.” Defective or faulty tools should be contained in a separate container for them not to be mistakenly used by others. Clearing the area from defective or faulty hand tools promotes safety among the users of it and the equipment.</p>
+
+        </div>
+    </div>
+
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="tap.png" alt="Lightbulb Icon">
+            What to Do?
+        </div>
+        <br>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Gather different hand tools from your workspace.</li>
+            <li style="padding-top: 20px;">Arrange them according to their type, purpose, or frequency of use.</li>
+            <li style="padding-top: 20px;">List the names of at least five (5) tools in the table below and identify their function.</li>
+            <li style="padding-top: 20px;">Answer the guide questions in short sentences based on your observations.</li>
+
+            <!-- Table Image -->
+            <div class="table-container", style="margin-top: 60px;">
+                <img src="lesson2act.png" alt="Client Requests Table">
+            </div>
+            <br>
+            <h3>Guide Questions:</h3>
+            <ul>
+                <li>Why is it important to arrange tools properly?</li>
+                <li style="padding-top: 20px;">How did organizing the tools help you in identifying their use?</li>
+                <li style="padding-top: 20px;">What problems might arise if tools are disorganized?</li>
+            </ul>
+
+        </ol>
+     </div>
+    
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="determination.png" alt="Lightbulb Icon">
+            Apply and Perform
+        </div>
+            <p><b>Labtask: Tool Inspection and Documentation </b></p> 
+        <h4>Instructions:</h4>
+        <ol>
+            <li>You will receive a set of hand tools.</li>
+            <li style="margin-top: 10px;">Conduct an inspection to identify any damage, wear, or cleanliness issues.</li>
+            <li style="margin-top: 10px;">Categorize and arrange tools logically based on their type and purpose.</li>
+            <li style="margin-top: 10px;">Document your inspection in the following format: </li>
+            <!-- Table Image -->
+            <div class="table-container", style="margin-top: 50px;">
+                <img src="lesson2labtask.png" alt="Client Requests Table">
+            </div>
+
+            <li style="margin-top: 30px;">Submit a short report detailing your findings, the logic behind your arrangement, and the importance of proper tool handling.</li>
+
+        </ol> <br>
+
+        <h3>Rubrics for assessing performance and activities </h3>
+        <p><b>1. Tool Inspection and Arrangement Activity </b></p>
+
+        <div class="table-container">
+            <img src="L21R.png" alt="Client Requests Table">
+            </div>
+        </div>
+
+        <h3 style="margin-left: 160px;">2. Performance Task: Tool Inspection Report & Lab Task </h3>
+
+        <div class="table-container">
+            <img src="L22R.png" alt="Client Requests Table">
+            </div>
+        </div>
+
+        <h3 style="margin-left: 170px;">3. Reflection Writing: Generalization Activity </h3>
+
+        <div class="table-container">
+            <img src="L23R.png" alt="Client Requests Table">
+            </div>
+        </div>
+     </div>
+
+     
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="copy-writing.png" alt="Lightbulb Icon">
+            What to Check
+        </div>
+    <p>
+        <span class="indented-first-word">Now</span> that you've had passed through the contents and activities of this lesson, it's time to reflect on what you learned. Answer this short quiz to check your knowledge about the proper usage of ESD tools, hand tools, and even cleaning materisls. Determining the defective and non-defective tools are also involved. Consider this applying what you’ve learned, so answer each question carefully. Good luck!
+    </p>
+    <b>How to access the short quiz:</b>
+    <a href="https://forms.gle/ieyomG613Xr5HHQ98" target="_blank" rel="noopener noreferrer" 
+        style="display: inline-block; padding: 12px 20px; background-color: #4D1C1C; 
+                color: white; font-size: 16px; border-radius: 8px; text-decoration: none; 
+                font-weight: bold; text-align: center; transition: 0.3s ease;">
+        📄 Open Google Form
+    </a><br>
+    <p><b>Make sure to answer the short quiz before proceeding. Good Luck!</b></p>
+    </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="learning.png" alt="Lightbulb Icon">
+            What have I learned?
+        </div>
+            <h3 style="margin-top: 50px;">Generalization (Reflection Writing)</h3>
+            <p>Write a short reflection answering the following:</p>
+        <h4>Guide Questions:</h4>
+        <ul>
+            <li>Why is tool organization important in a workspace?</li>
+            <li style="margin-top: 10px;">How does checking tools before use improve work safety?</li>
+            <li style="margin-top: 10px;">What lesson did you learn from this topic that you can apply in real-life situations?</li>
+            <li style="margin-top: 10px;">Think of a time when you or someone else encountered a defective tool in a workplace, school, or home.</li>
+            <li style="margin-top: 10px;">What was the impact of using (or almost using) that defective tool?</li>
+            <li style="margin-top: 10px;">How could proper tool inspection have prevented the problem?</li>
+        <ul>
+        
+     </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container"> 
+        <h2>References:</h2>
+            <p>DLRC Iligan. (n.d.). PC hardware servicing learning module. Retrieved from https://dlrciligan.weebly.com/uploads/5/0/8/0/50800379/pc_hardware_servicing_learning_module.pdf </p>
+            <p>PDFCOFFEE. (n.d.). TVL ICT CSS 11 Q2 Module 2: Using hand tools. Retrieved from https://pdfcoffee.com/tvl-ict-css-11-q2-module-2-using-hand-tools-pdf-free.html</p>      </p>
+    </div>
+
+
+
+
+
+    <div class="button-container" style="text-align: center; margin-top: 20px;">
+        <button onclick="goToLesson1()" class="custom-button">
+            <i class="fas fa-arrow-left"></i> Go back to Lesson 1
+        </button>
+        
+        <button onclick="proceedToLesson3()" class="custom-button">
+            Proceed to Lesson 3 <i class="fas fa-arrow-right"></i>
+        </button>
+        
+    </div>
+
+
+    <script>
+
+        function goToLesson1() {
+        window.location.href = "lesson1.html";
+        }
+        function proceedToLesson3() {
+            window.location.href = "lesson3.html";
+        }
+
+        
+    </script>
+    
+</body>
+</html>

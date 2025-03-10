@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>CHAPTER 1: USE HAND TOOLS</title>
+    <style>
+        body {
+            background-color: #ebdaa8;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body {
+            overflow-x: hidden;
+        }
+        .ict-text {
+            text-underline-offset: 100%;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            color: #421D1D;
+            margin-top: 20px;
+            padding: 20px 10px;
+        }
+        .header-container {
+            position: relative;
+            width: 100vw;
+            max-height: 250px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .header-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            opacity: 0.5;
+        }
+        .chapter-text {
+            position: absolute;
+            top: 35%;
+            left: 80px;
+            transform: translateY(-50%);
+            color: #2e1414;
+            font-size: 4em;
+            text-align: left;
+            width: auto;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            white-space: pre-line;
+        }
+        .chapter-text span {
+            font-weight: bold;
+        }
+
+        .bottom-line {
+            width: 90%;
+            height: 3px;
+            background-color: #2c1515;
+            margin: 30px auto 0;
+        }
+
+        .introduction-container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1.6em;
+            color: #2e1414;
+            background-color: #ebdaa8;
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.5;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: justify;
+        }
+
+        .introduction-container b {
+            font-weight: bold;
+        }
+
+        .introduction-container b a{
+            font-weight: bold;
+            font-size: 1.7em;
+        }
+
+        .indented-first-word {
+            display: inline-block;
+            text-indent: 2em;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .image-container img {
+            width: 100%;  /* Makes the image responsive */
+            max-width: 70%; /* Limits the size to 70% of the container */
+            height: auto;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto; /* Centers the image */
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .image-title {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2e1414;
+            margin: 10px 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .section-container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1.6em;
+            color: #2e1414;
+            background-color: #ebdaa8;
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.5;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: justify;
+            
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2e1414;
+            margin-bottom: 10px;
+        }
+
+        .section-header img {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        /* QR Code Container */
+        .qr-container {
+            text-align: center;
+            width: 100%;
+            max-width: 600px; /* Keeps it contained */
+            margin: 0 auto;
+        }
+
+        /* QR Code Styling */
+        .qr-code {
+            width: 440px; /* Default size for desktop */
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            transition: width 0.3s ease-in-out; /* Smooth resizing */
+        }
+
+        /* Responsive Scaling */
+        @media (min-width: 1440px) { /* Large screens */
+            .qr-code {
+                width: 500px;
+            }
+        }
+
+        @media (min-width: 1600px) { /* Extra large screens */
+            .qr-code {
+                width: 600px;
+            }
+        }
+
+        @media (max-width: 1024px) { /* Laptops/Tablets */
+            .qr-code {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) { /* Tablets */
+            .qr-code {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) { /* Mobile */
+            .qr-code {
+                width: 240px;
+            }
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between; /* Moves buttons to the farthest left and right */
+            width: 90%; /* Adjust this to control spacing */
+            margin: 0 auto; /* Centers the container */
+        }
+
+
+        .custom-button {
+            background-color: #421D1D;
+            color: white;
+            padding: 15px 30px; /* Increased padding for a bigger button */
+            font-size: 1.4em; /* Increased text size */
+            border: none;
+            border-radius: 12px; /* Slightly rounder corners */
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .custom-button:hover {
+            background-color: #2c1515;
+            transform: scale(1.05); /* Slightly enlarges button on hover */
+        }
+
+        .pre-test-text {
+            text-align: center;
+            font-size: 1.0em; /* Adjust the size if needed */
+            margin-top: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .ict-text {
+                font-size: 1.8em;
+            }
+            .chapter-text {
+                font-size: 2.5em;
+            }
+        }
+        @media (max-width: 768px) {
+            .ict-text {
+                font-size: 1.5em;
+            }
+            .chapter-text {
+                font-size: 2em;
+                left: 20px;
+                text-align: left;
+            }
+        }
+        @media (max-width: 480px) {
+            .ict-text {
+                font-size: 1.2em;
+            }
+            .chapter-text {
+                font-size: 1.5em;
+            }
+        }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .image-container img {
+                max-width: 80%; /* Slightly larger for tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-container img {
+                max-width: 90%; /* Almost full width on mobile */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .button-container {
+                flex-direction: column; /* Stack buttons on smaller screens */
+                align-items: center;
+                gap: 10px; /* Adds space between stacked buttons */
+            }
+
+            .custom-button {
+                width: 90%; /* Make buttons wider on small screens */
+            }
+        }   
+    </style>
+</head>
+<body>
+    <div class="ict-text">
+        INFORMATION AND COMMUNICATION TECHNOLOGY - Computer Systems Servicing (CSS)
+    </div>
+    <div class="header-container">
+        <img src="usehandtoolsimg.jpeg" alt="Header Image" class="header-img">
+        <div class="chapter-text">
+            <span>WELCOME TO CHAPTER 1:</span> <br> Use Hand Tools
+        </div>
+    </div>
+    <div class="bottom-line"></div>
+    <div class="introduction-container">
+        <b><a>Introduction:</a></b><br><br>
+        <span class="indented-first-word">Welcome</span> to the topic <b>“Using Hand Tools”</b>. This learning material provides important content materials and activities for you to develop the skills you need for using and maintaining hand tools. Throughout this module, you will be expected to gain a deeper understanding of hand tools, their uses, maintenance, and how to properly use them. You will also understand the importance of proper tool maintenance, cleaning, storage, and apply safety protocols to prevent workplace hazards. The lesson includes reading materials, hands-on activities, and assessment to measure your understanding about the topic. The lessons and activities are required to be passed in order to complete this learning material.
+    </div>
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="conversation.png" alt="Question Icon">
+            What I need to know?
+        </div>
+        <span class="indented-first-word">This</span> module consists of four lessons that will help you to attain your goal for Using Hand Tools. The Lessons are properly arranged in chronological order to follow the standard sequence of the topic.
+        <br><br>
+        <b>The Lesson Includes:</b>
+        <ul></ul>
+        <ul>
+            <li><b>Lesson 1:</b> <i>Understanding Hand Tools: Types, Functions, and Proper Selection for Task Requirements</i> - This lesson will help you learn about the different types of hand tools, their specific use, and their appropriateness to the specific task given.</li> <br>
+            
+            <li><b>Lesson 2:</b> <i>Arranging and Checking Hand Tools</i> - This lesson helps you work on proper safety checking and will show you the importance of a well-managed workspace.</li> <br>
+            
+            <li><b>Lesson 3:</b> <i>Conducting Routine Inspections of Tools: Ensuring Safety and Performance</i> - This lesson will help you with tool inspections and other safety routines.</li> <br>
+            
+            <li><b>Lesson 4:</b> <i>Proper Maintenance and Storage of Hand Tools</i> - This lesson will guide you to the best practices for storing, cleaning, and maintaining tools to extend their lifespan.</li> <br>
+        </ul>
+        
+        </ul>
+    </div>
+    <div class="bottom-line"></div>
+    <div class="image-title">Instructional Blueprint</div>
+    <div class="image-container">
+        <img src="InstructionalBlueprint.png" alt="Instructional Blueprint" onclick="openModal(this.src)">
+    </div>
+    <div class="modal" id="imageModal" onclick="closeModal()">
+        <img id="modalImage" src="">
+    </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="idea.png" alt="Lightbulb Icon">
+            What I know
+        </div>
+    <p>
+        <span class="indented-first-word">Diving</span> directly into the lesson might be too straightforward; let’s put you into a test on what you already know about hand tools! This will help you refresh your current understanding and identify the areas for improvement all throughout this module.
+    </p>
+    <b>How to access the pre-test:</b>
+    <a href="https://forms.gle/WC53Sma3g9EVmeBM9" target="_blank" rel="noopener noreferrer" 
+        style="display: inline-block; padding: 12px 20px; background-color: #4D1C1C; 
+                color: white; font-size: 16px; border-radius: 8px; text-decoration: none; 
+                font-weight: bold; text-align: center; transition: 0.3s ease;">
+        📄 Open Google Form
+    </a>
+    <p><b>OR</b></p>
+    <p>Just kindly screenshot this QR Code and scan it to access the Pre-Test via Google Forms.</p>
+    
+    <div class="qr-container">
+        <img src="qr_code_pretest.png" alt="QR Code Placeholder" class="qr-code">
+    </div>
+    
+    <p class="pre-test-text">Make sure to finish the Pre-Test first before jumping in to Lesson 1!</p>
+    </div>
+    <div class="button-container" style="text-align: center; margin-top: 20px;">
+        <button onclick="goToHomePage()" class="custom-button">
+            <i class="fas fa-arrow-left"></i> Go back to home page
+        </button>
+        
+        <button onclick="proceedToLesson1()" class="custom-button">
+            Proceed to Lesson 1 <i class="fas fa-arrow-right"></i>
+        </button>
+        
+    </div>
+
+    <script>
+        // Ensure modal is hidden on page load
+        window.onload = function() {
+            document.getElementById("imageModal").style.display = "none";
+        };
+    
+        function openModal(src) {
+            var modal = document.getElementById("imageModal");
+            var modalImage = document.getElementById("modalImage");
+    
+            modalImage.src = src; // Set the clicked image as the modal image
+            modal.style.display = "flex"; // Show the modal
+        }
+    
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none"; // Hide the modal
+        }
+    
+        // Close modal when clicking outside the image
+        document.getElementById("imageModal").addEventListener("click", function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+
+        function goToHomePage() {
+        window.location.href = "index.html";
+        }
+        function proceedToLesson1() {
+            window.location.href = "lesson1.html";
+        }
+    </script>
+    
+
+    
+    
+</body>
+</html>

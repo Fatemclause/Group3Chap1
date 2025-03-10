@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>CHAP1-LESSON1</title>
+    <style>
+        body {
+            background-color: #ebdaa8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body {
+            overflow-x: hidden;
+        }
+        .ict-text {
+            text-underline-offset: 100%;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            color: #421D1D;
+            margin-top: 20px;
+            padding: 20px 10px;
+        }
+        .header-container {
+            position: relative;
+            width: 100vw;
+            max-height: 300px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .header-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            opacity: 0.5;
+        }
+        .chapter-text {
+            position: absolute;
+            top: 35%;
+            left: 80px;
+            transform: translateY(-50%);
+            color: #2e1414;
+            font-size: 4em;
+            text-align: left;
+            width: auto;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            white-space: pre-line;
+        }
+        .chapter-text span {
+            font-weight: bold;
+        }
+
+        .bottom-line {
+            width: 90%;
+            height: 3px;
+            background-color: #2c1515;
+            margin: 30px auto 0;
+        }
+
+        .introduction-container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1.6em;
+            color: #2e1414;
+            background-color: #ebdaa8;
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.5;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: justify;
+        }
+
+        .introduction-container b {
+            font-weight: bold;
+        }
+
+        .introduction-container b a{
+            font-weight: bold;
+            font-size: 1.7em;
+        }
+
+        .indented-first-word {
+            display: inline-block;
+            text-indent: 2em;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .image-container img {
+            width: 100%;  /* Makes the image responsive */
+            max-width: 70%; /* Limits the size to 70% of the container */
+            height: auto;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto; /* Centers the image */
+        }
+
+        .image-title {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2e1414;
+            margin: 10px 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .section-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1.6em;
+            color: #2e1414;
+            background-color: #ebdaa8;
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.5;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: justify;
+            
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2e1414;
+            margin-bottom: 10px;
+        }
+
+        .section-header img {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between; /* Moves buttons to the farthest left and right */
+            width: 90%; /* Adjust this to control spacing */
+            margin: 0 auto; /* Centers the container */
+        }
+
+
+        .custom-button {
+            background-color: #421D1D;
+            color: white;
+            padding: 15px 30px; /* Increased padding for a bigger button */
+            font-size: 1.4em; /* Increased text size */
+            border: none;
+            border-radius: 12px; /* Slightly rounder corners */
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .custom-button:hover {
+            background-color: #2c1515;
+            transform: scale(1.05); /* Slightly enlarges button on hover */
+        }
+
+
+        .observe-header {
+            display: flex;
+            align-items: center;
+            font-size: 1.7em;
+            font-weight: bold;
+            color: #2e1414;
+            margin-bottom: 10px;
+        }
+
+        .observe-icon {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px; /* Adjust spacing between icon and text */
+        }
+
+        @media (max-width: 1200px) {
+            .section-container {
+                font-size: 1.4em; /* Slightly smaller font size for tablets and larger screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-container {
+                font-size: 1.2em; /* Adjusted font size for tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-container {
+                font-size: 1.0em; /* Smaller font size for mobile */
+                padding: 10px;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .observe-header {
+                font-size: 1.5em;
+            }
+            .observe-icon {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .observe-header {
+                font-size: 1.3em;
+            }
+            .observe-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 1480px) {
+            .ict-text {
+                font-size: 1.8em;
+            }
+            .chapter-text {
+                font-size: 2.8em;
+            }
+        }
+
+
+        @media (max-width: 1024px) {
+            .ict-text {
+                font-size: 1.8em;
+            }
+            .chapter-text {
+                font-size: 2.2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ict-text {
+                font-size: 1.5em;
+            }
+            .chapter-text {
+                font-size: 2em;
+                left: 20px;
+                text-align: left;
+            }
+        }
+        @media (max-width: 480px) {
+            .ict-text {
+                font-size: 1.2em;
+            }
+            .chapter-text {
+                font-size: 1.5em;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .button-container {
+                flex-direction: column; /* Stack buttons on smaller screens */
+                align-items: center;
+                gap: 10px; /* Adds space between stacked buttons */
+            }
+
+            .custom-button {
+                width: 90%; /* Make buttons wider on small screens */
+            }
+        }
+        
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 30px;
+            padding: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .instructions-container {
+            width: 90%;  /* Flexible width */
+            max-width: 1200px;  /* Prevent excessive stretching */
+            margin: 20px auto;  /* Center it */
+            padding: 20px;
+            font-size: 1.5em;
+            color: #2e1414;
+            background-color: #ebdaa8;
+            border-radius: 10px;
+            line-height: 1.5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: left;
+            word-wrap: break-word; /* Ensures text wraps properly */
+        }
+
+        /* Tablet size adjustments */
+        @media (max-width: 1024px) {
+            .instructions-container {
+                width: 95%;
+                font-size: 1.3em;
+                padding: 15px;
+            }
+        }
+
+        /* Mobile-friendly layout */
+        @media (max-width: 768px) {
+            .instructions-container {
+                width: 100%;
+                font-size: 1.2em;
+                padding: 15px;
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width: 480px) {
+            .instructions-container {
+                width: 100%;
+                font-size: 1em;
+                padding: 10px;
+            }
+        }
+
+        /* Ultra-small screens (below 350px) */
+        @media (max-width: 350px) {
+            .instructions-container {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+        }
+
+        .hand-tools-section {
+            background-color: #ebdaa8;
+            padding: 2=0px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2e1414;
+            line-height: 1.6;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #421D1D;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        .tool-item {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .tool-description {
+            flex: 1;
+            font-size: 1.1em;
+            margin-right: 50px;
+        }
+
+        .tool-image {
+            width: 180px; /* Fixed width for the image container */
+            height: 180px; /* Fixed height for the image container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff; /* White background to keep it neat */
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            margin-left: 30px;
+        }
+
+        /* Image inside the container */
+        .tool-image img {
+            width: 160px; /* Increased size */
+            height: auto;
+            max-height: 160px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .tool-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .tool-image {
+                width: 200px; 
+                height: 200px;
+                margin-top: 10px;
+            }
+
+            .tool-image img {
+                width: 180px;
+                max-height: 180px;
+            }
+
+            .tool-description {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hand-tools-section {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            .tool-description {
+                font-size: 1.1em;
+            }
+
+            .tool-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .tool-image img {
+                width: 130px;
+                max-height: 130px;
+            }
+        }
+
+        .table-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .table-container img {
+            width: 100%;
+            max-width: 700px; /* Limits max size */
+            border: 2px solid #D4A76A;
+            border-radius: 5px;
+        }
+
+        .jinjinir-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .jinjinir-container img {
+            width: 100%;
+            max-width: 500px; /* Limits max size */
+            border: 2px solid #D4A76A;
+            border-radius: 5px;
+        }
+
+                /* QR Code Container */
+                .qr-container {
+            text-align: center;
+            width: 100%;
+            max-width: 600px; /* Keeps it contained */
+            margin: 0 auto;
+        }
+
+        /* QR Code Styling */
+        .qr-code {
+            width: 440px; /* Default size for desktop */
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            transition: width 0.3s ease-in-out; /* Smooth resizing */
+        }
+
+        /* Responsive Scaling */
+        @media (min-width: 1440px) { /* Large screens */
+            .qr-code {
+                width: 500px;
+            }
+        }
+
+        @media (min-width: 1600px) { /* Extra large screens */
+            .qr-code {
+                width: 600px;
+            }
+        }
+
+        @media (max-width: 1024px) { /* Laptops/Tablets */
+            .qr-code {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) { /* Tablets */
+            .qr-code {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) { /* Mobile */
+            .qr-code {
+                width: 240px;
+            }
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="ict-text">
+        INFORMATION AND COMMUNICATION TECHNOLOGY - Computer Systems Servicing (CSS)
+    </div>
+    <div class="header-container">
+        <img src="lesson1mainpic.jpg" alt="Header Image" class="header-img">
+        <div class="chapter-text">
+            <span>Lesson 1:</span> <br> Understanding Hand Tools: Types, Functions, and Proper Selection for Task Requirements
+        </div>
+    </div>
+    <div class="bottom-line"></div>
+    <div class="introduction-container">
+        <div class="observe-header">
+            <img src="content.png" alt="Icon" class="observe-icon">
+            <b>Observe and List:</b>
+        </div>
+        
+        <p class="observe-text">
+            Kindly observe these pictures.
+        </p>
+        <div class="image-container">
+            <img src="combined_tools.png" alt="Combined Tools">
+        </div>
+    </div>
+
+    <div class="instructions-container">
+        <h2>Instructions:</h2>
+        <ol>
+            <li>Get a blank piece of paper and write your name.</li>
+            <li>Based on the pictures shown above, list the name of each device and their uses.</li>
+            <li>What tools do you think would associate with each of them if they need maintenance, cleaning, or repairing? Jot down your answers and justifications on the paper.</li>
+        </ol>
+        <br>    
+    
+        <h2>Guide Questions:</h2>
+        <ul>
+            <li>What task does each tool help with within the context of this device?</li>
+            <li>Why is it important to use the correct tool for this task?</li>
+            <li>Can you think of any additional tools that could be used for this device?</li>
+        </ul>
+    </div>
+    <div class="bottom-line"></div>
+
+    <div class="section-container">
+        <div class="section-header">
+            <img src="conversation.png" alt="Question Icon">
+            What I need to know?
+        </div>
+        <br>
+        <b style="font-size: 1.3em;">Objectives:</b>
+        <br> <br>
+        <span class="indented-first-word">At the end of the lesson the student should be able to:</span>    
+        <ul></ul>
+        <ul style="font-size: 1.0em;">
+            <li> Identify appropriate type of hand tools needed for the task</li><br>
+            
+            <li> Demonstrate the correct method when selecting and matching the right tools</li><br>
+            
+            <li> Show responsibility in selecting tools by ensuring the chosen tools align with task requirements and servicing standards.</li>
+            
+        </ul>
+        
+        </ul>
+    </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="content.png" alt="Lightbulb Icon">
+            What to know
+        </div>
+        <div class="content-section">
+            <h2 class="section-title", style="font-size: 1.3em;">Understanding Hand Tools: Types, Functions, and Proper Selection for Task Requirements</h2>
+            
+            <p><span class="indented-first-word"><b>Hand tools</b></span> are very important in performing various tasks efficiently and effectively. Selecting the right tool for a specific task ensures precision, safety, and productivity. In this lesson, you will learn about different types of hand tools, their functions, and how to choose the most appropriate tool based on task requirements.</p>
+        
+            <h4>Planning</h4>
+            <p><span class="indented-first-word">It</span> is the first step in analyzing a task. It focuses on defining goals and steps to achieve them. The planning function involves establishing goals and arranging them in logical order.</p>
+        
+            <h3>What do we need to consider when planning a task?</h3>
+            <ul>
+                <li><b>Identifying the task objectives</b> – it must be clearly defined what do we need to attain and to be done.</li>
+                <li><b>List the equipment or tools needed for the task</b> – determine which tools are required for the specific task to perform effectively.</li>
+                <li><b>Estimate the time duration and effort needed</b> – properly consider the time required to complete the specific task and how much intensity of effort is needed.</li>
+                <li><b>Examine the Proper Precautions</b> – identify the potential harm or risks present in the task and ensure to avoid them by ensuring preparation of proper protective equipment in the area.</li>
+                <li><b>Assess the workplace</b> – investigate and inspect each of every corner of the workplace for damages, space limitations, or any workplace guideline.</li>
+            </ul>
+        </div>
+            <p>
+                <b>Example: </b>You are tasked to assemble a computer in the client’s house. Before executing the action, you need to consider first to identify the primary objectives of the task and that is to properly assemble a computer. Next is to list the tools needed for the task (Screwdrivers, anti-static wrist straps, etc). you need to ensure that your workplace is clean and safe, and finally estimate how long the computer task will take. 
+            </p> <br>
+            <p>
+                <i>But how do we know how hard the task to be performed and how it would affect our considerations in planning?</i>
+            </p> <br>
+
+            <h4>Task Complexity</h4>
+            <p><span class="indented-first-word">It</span> is the level of difficulty of a task, and the amount of mental effort required to complete it. And the complexity of a task could affect the considerations of selecting tools and techniques required to perform. </p>
+            <p>Here are the kind of task complexities for you to understand:</p>
+            <ol>
+                <li><b>Simple Tasks</span></b> - this task requires minimal tools and can be completed with basic prior knowledge of a person <i>(e.g., tightening a loose screw with a screwdriver)</i></li>
+                <li><b>Moderate Tasks</span></b> - involves multiple steps and may require specialized tools <i>(e.g., assembling a motherboard using a variety of screwdrivers and precision tools)</i></li>
+                <li><b>Difficult Tasks</span></b> - Demand advanced skills, multiple tools, and careful execution. <i>(e.g., tightening a loose screw with a screwdriver)</i></li>
+            </ol> <br>
+
+            <p><span class="indented-first-word">Task</span> complexity is defined as the measure of how hard a particular task is to complete. Some tasks can be straightforward and use simple tools, but others are highly complicated and require many steps, specific tools, and skillful techniques. Workers can minimize mistakes and improve productivity by comprehensively understanding the <b>task complexity</b>, breaking the task down into effective steps, and creating a proper <b>planning</b> beforehand. Together, these two factors improve the efficiency, safety, and quality of work outcomes.</p>
+
+    </div>
+
+    <div class="bottom-line"></div>
+        <div class="section-container">
+            <h4>Hand Tools</h4>
+            <p><span class="indented-first-word">is</span> a device for performing work on a material or a physical system using only hands. The hand tools can be manually used employing force, or electrically powered, using electrical current. Tools are basic purpose hand manual instruments used to buildup, repair, or check computer hardware in <b>Computer System Servicing</b>. These tools are also categorized according to their functions to ensure handling of computer components is precise, safe, and efficient.</p>
+            <br>
+            <div class="hand-tools-section">
+                <h3>Types of Hand Tools:</h3>
+            
+                <p><b>1. ESD (Electrostatic Discharge) Tools -</b> These tools help protect sensitive electronic components from static electricity, which can cause damage.</p>
+            
+                <h4>Examples of ESD (Electrostatic Discharge) Tools:</h4>
+            
+                <div class="tool-item">
+                    <div class="tool-description">
+                        <p><b>Anti-static wrist strap -</b> Worn on the wrist and connected to a grounded surface to prevent electrostatic discharge while handling computer parts.</p>
+                    </div>
+                    <div class="tool-image">
+                        <img src="asws.jpg" alt="Anti-static wrist strap">
+                    </div>
+                </div>
+            
+                <div class="tool-item">
+                    <div class="tool-description">
+                        <p><b>Anti-static mat -</b> Used to stand on or place hardware on to prevent static electricity from building up.</p>
+                    </div>
+                    <div class="tool-image">
+                        <img src="asm.jpg" alt="Anti-static mat">
+                    </div>
+                </div>
+                <br>
+                <p><b>2. Handheld Screwdrivers and Nut Drivers -</b> Used for assembling and disassembling computer parts such as cases, motherboards, and hard drives.</p>
+            
+                <h4>Examples of Handheld Screwdrivers and Nut Drivers:</h4>
+            
+                <div class="tool-item">
+                    <div class="tool-description">
+                        <p><b>Philips head screwdriver -</b> Used to loosen or tighten crosshead screws.</p>
+                    </div>
+                    <div class="tool-image">
+                        <img src="phs.png" alt="Philips head screwdriver">
+                    </div>
+                </div>
+            
+                <div class="tool-item">
+                    <div class="tool-description">
+                        <p><b>Flat head screwdriver -</b> Used to loosen or tighten slotted screws.</p>
+                    </div>
+                    <div class="tool-image">
+                        <img src="fhs.png" alt="Flat head screwdriver">
+                    </div>
+                </div>
+            
+                <div class="tool-item">
+                    <div class="tool-description">
+                        <p><b>Nut driver -</b> Helps in tightening or loosening small hexagonal nuts used in computer hardware.</p>
+                    </div>
+                    <div class="tool-image">
+                        <img src="nd.jpg" alt="Nut driver">
+                    </div>
+                </div>
+                <br>
+                <p><b>3. Cutting and Stripping Tools -</b> These tools are used for cutting and stripping cables and wires in computer maintenance and networking.</p>
+            
+                <h4>Examples of Cutting and Stripping Tools:</h4>
+            
+                <div class="tool-item">
+                    <div class="tool-description">
+                        <p><b>Wire stripper -</b> Removes insulation from electrical wires without damaging the copper inside.</p>
+                    </div>
+                    <div class="tool-image">
+                        <img src="wirestripper.jpg" alt="Wire stripper">
+                    </div>
+                </div>
+            
+                <div class="tool-item">
+                    <div class="tool-description">
+                        <p><b>Side cutter pliers -</b> Used for cutting wires, zip ties, and small plastic components.</p>
+                    </div>
+                    <div class="tool-image">
+                        <img src="sidecutter.jpg" alt="Side cutter pliers">
+                    </div>
+                </div>
+            
+                <div class="tool-item">
+                    <div class="tool-description">
+                        <p><b>Crim  ping tool -</b> Attaches connectors (e.g., RJ-45) to network cables.</p>
+                    </div>
+                    <div class="tool-image">
+                        <img src="crimping.jpg" alt="Crimping tool">
+                    </div>
+                </div>
+                <br>
+                <p><b>4. Diagnostic Tools -</b> Tools used to test and troubleshoot hardware components.</p>
+            
+                <h4>Examples of Diagnostic Tools:</h4>
+            
+                <div class="tool-item">
+                    <div class="tool-description">
+                        <p><b>Multimeter -</b> Measures voltage, resistance, and continuity in power supplies and circuits.</p>
+                    </div>
+                    <div class="tool-image">
+                        <img src="multimeter.jpg" alt="Multimeter">
+                    </div>
+                </div>
+            
+                <div class="tool-item">
+                    <div class="tool-description">
+                        <p><b>LAN Tester -</b> Measures LAN connections, certifies cables, and troubleshoots any network issues that might arise.</p>
+                    </div>
+                    <div class="tool-image">
+                        <img src="lan-tester.jpg" alt="LAN Tester">
+                    </div>
+                </div>
+                <br>
+                <p><b>5. Cleaning Tools -</b> Tools that ensure computer components are not damaged during cleaning while keeping them tidy and dirt-free.</p>
+                
+                <h4>Examples of Cleaning Tools:</h4>
+
+                <div class="tool-item">
+                    <div class="tool-description">
+                        <p><b>Lint-free cloth -</b> Used to clean different computer components without scratching or leaving debris.</p>
+                    </div>
+                    <div class="tool-image">
+                        <img src="lintfree.jpg" alt="Lint-free cloth">
+                    </div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-description">
+                        <p><b>Compressed air -</b> Used to blow away dust and debris from different computer parts without touching the components.</p>
+                    </div>
+                    <div class="tool-image">
+                        <img src="compressedair.jpg" alt="Compressed air">
+                    </div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-description">
+                        <p><b>Cable ties -</b> Used to bundle cables neatly inside and outside of a computer.</p>
+                    </div>
+                    <div class="tool-image">
+                        <img src="cableties.jpg" alt="Cable ties">
+                    </div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-description">
+                        <p><b>Parts organizer -</b> Used to hold screws, jumpers, fasteners, and other small parts and prevents them from getting mixed together.</p>
+                    </div>
+                    <div class="tool-image">
+                        <img src="partsorganizer.jpg" alt="Parts organizer">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container"> 
+        <h3><b>Proper Tool Selection</b></h3>
+        <p><span class="indented-first-word">A</span> tool is a handheld device that aids in accomplishing a task. Tools range from a traditional metal cutting part of a machine to an element of a computer program that activates and controls a particular function.</p>
+        <br>
+        <h4>Preparing for the task to be undertaken includes proper tool selection.</h4>
+        <ol>
+            <li>How do you determine the optimal tool for a job? Begin by thoroughly grasping the project's requirements. Next, create a plan for the project, taking into account the order of operations</li>
+            <li>Choosing the best tool for each step necessitates training in its correct operation, practical experience in its safe handling, and adherence to the maker's guidelines and directions for that particular tool.</li>
+            <li>When acquiring the tool, ensure that all accompanying accessories and expendable components, as advised by the manufacturer, are included. Furthermore, appropriate expendable components should be chosen and employed according to their respective manufacturer's instructions.</li>
+        </ol>
+
+        
+
+    </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="tap.png" alt="Lightbulb Icon">
+            What to Do?
+        </div>
+            <p><span class ="indented-first-word">Imagine </span> you're working as a tool technician in a virtual hand tool workshop. You receive daily requests from clients who need specific repairs done using hand tools. You have your document requests from the clients.</p>
+         <!-- Table Image -->
+         <div class="jinjinir-container">
+            <img src="jinjijnir.jpg" alt="Client Requests Table">
+        </div>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Prepare A4 size bond paper that will serve as your document for clients.</li>
+            <li style="padding-top: 30px; padding-bottom: 20px;">In the document, there are three cases reported by the clients. Kindly copy the case given by the table below:</li>
+        
+
+            <!-- Table Image -->
+            <div class="table-container">
+                <img src="table-image.png" alt="Client Requests Table">
+            </div>
+
+            <li style="padding-top: 30px;">After reading all the client's request, you must select the correct tool and explain why you chose it, thinking about how it will help get the job done effectively and safely. Write down your choice at the given table.</li>
+        </ol> <br>
+        <p><span class="indented-first-word">In</span> this exercise you were playing the part of a tool technician, making important decisions about which hand tools to use for certain servicing tasks. Choosing the appropriate tool for the job is key to your efficiency, accuracy, and safety when working with computer devices. When you know what each tool does, you will be able to repair any hardware problems easily.</p>
+     </div>
+    
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="remember.png" alt="Lightbulb Icon">
+            What to Consider?
+        </div> <br>
+            <p><b>Always remember:</b></p>
+            <ul>
+                <li>The right tool makes the task <b>easier and safer ✔ </b></li>
+                <li>Using the <b>wrong tool</b> can damage components or cause inefficiencies ✔ </li>
+                <li><b>Proper handling and selection</b> of tools is a fundamental skill in computer system servicing ✔ </li>
+            </ul><br>
+    </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="determination.png" alt="Lightbulb Icon">
+            Apply and Perform
+        </div>
+            <p><b>Performance Task: Labtask </b></p> 
+        <h4>Instructions:</h4>
+        <ol>
+            <li>You will be grouped by your teacher into four groups. Each group will be assigned a specific task (e.g., assembling a desktop computer, repairing a malfunctioning device, or disassembling a TV). The task will require a set of tools for successful completion</b></li>
+            <li style="margin-top: 10px;">Your group will be given a description of the task. Based on the task requirements, analyze and identify which hand tools are necessary</li>
+            <li style="margin-top: 10px;">In the laboratory, you will <b>demonstrate</b> the correct method of selecting tools. (For example, if the task involves working with screws, demonstrate why you chose the right screwdriver (size, type) and not another tool.)</li>
+            <li style="margin-top: 10px;">Once you have selected the appropriate tools, carry out the task using the tools correctly. </li>
+            <li style="margin-top: 10px;">After completing the task, write a <b>short report</b> detailing the tools used, how you selected them, and how they helped you complete the task. Include any challenges faced and how you overcame them. This is the format for a short report:</li>
+        <br>
+        
+            <!-- Table Image -->
+            <div class="table-container">
+                <img src="formattask.png" alt="Client Requests Table">
+            </div>
+
+        </ol> <br>
+        <p><b><span class="indented-first-word">The</span> Criteria for the Performance Task: </b></p>
+     </div>
+
+     <div class="table-container">
+        <img src="rubricss.png" alt="Client Requests Table">
+        </div>
+    </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="idea.png" alt="Lightbulb Icon">
+            What I know
+        </div>
+    <p>
+        <span class="indented-first-word">Now</span> that you've had passed through the contents and activities of this lesson, it's time to reflect on what you learned. Answer this short quiz to check your knowledge of hand tools, their classifications, proper selection, and usage in computer system servicing. Consider this applying what you’ve learned, so answer each question carefully. Good luck!
+    </p>
+    <b>How to access the short quiz:</b>
+    <a href="https://forms.gle/ieyomG613Xr5HHQ98" target="_blank" rel="noopener noreferrer" 
+        style="display: inline-block; padding: 12px 20px; background-color: #4D1C1C; 
+                color: white; font-size: 16px; border-radius: 8px; text-decoration: none; 
+                font-weight: bold; text-align: center; transition: 0.3s ease;">
+        📄 Open Google Form
+    </a>
+    <p><b>OR</b></p>
+    <p>Just kindly screenshot this QR Code and scan it to access the Short-Quiz via Google Forms.</p>
+    </div>
+    
+    <div class="qr-container">
+        <img src="qr_code_shortquiz1.png" alt="QR Code Placeholder" class="qr-code">
+    </div><br>
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="learning.png" alt="Lightbulb Icon">
+            What have I learned?
+        </div>
+            <p style="margin-top: 50px;"><span class="indented-first-word">The</span> selection of the appropriate tool for the task is much more convenient when you consider the safety, efficiency, and successful task completion. Employing the proper tools eliminates the potential for injury, reduces damage to components, and makes it possible to get the work done with accuracy and ease. In computer system maintenance, one minor error—such as an incorrect screwdriver or failure to use ESD protection—can create expensive mistakes.</p> 
+            <p><span class="indented-first-word">As</span> you think about this lesson, think about how ethical tool choice applies to real-life servicing situations. In a sheet of paper make a <b>reflection-essay</b> about what you learned from the lesson, use the guide question to organize your thinking and relate your learning to real-world applications. 
+        <h4>Guide Questions:</h4>
+        <ol>
+            <li>Why is safety a major consideration when selecting hand tools for a task? Can you recall a situation where improper tool use led to a safety risk?</li>
+            <li style="margin-top: 10px;">How does using the correct tool improve work efficiency? What challenges might arise if the wrong tool is used?</li>
+            <li style="margin-top: 10px;">In what ways does proper tool selection help maintain the quality and longevity of both tools and computer components?</li>
+            <li style="margin-top: 10px;">How do industry standards and best practices guide tool selection in computer system servicing?</li>
+            <li style="margin-top: 10px;">What lessons did you learn from this topic that you can apply in real-world troubleshooting and repair scenarios?</li>
+        <br>
+        
+     </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container"> 
+        <h2>References:</h2>
+            <p>Aklas State University. (n.d.). Lesson 1: Using and maintaining hand tools. Studocu. Retrieved from https://www.studocu.com/ph/document/aklan-state-university/computer-programming/lesson-1-using-and-maintaining-hand-tools/100587176 </p>
+            <p>Capiz State University. (n.d.). CSS 7-8 Week 1: Using and maintaining hand tools. Studocu. Retrieved from https://www.studocu.com/ph/document/capiz-state-university/bachelor-of-science-in-criminology/css-7-8-week-1-using-and-maintaining-hand-tools/62307888 </p>
+            <p>RS Components. (n.d.). Network testers. Retrieved from https://ph.rs-online.com/web/c/test-measurement/network-test-measurement/network-testers/  </p>
+            <p>Scribd. (n.d.). Hand tools and equipment in computer system servicing 1. Retrieved from https://www.scribd.com/document/720547682/Hand-tools-and-equipment-in-Computer-System-Servicing-1  </p>
+            <p>Scribd. (n.d.). ICT Lesson 1: Use hand tools. Retrieved from https://www.scribd.com/document/479539295/ICT-Lesson-1-Use-Hand-Tools </p>
+            <p>R. E. (1986). Task complexity: A review and analysis. ResearchGate. Retrieved from https://www.researchgate.net/publication/243768060_Task_Complexity_A_Review_and_Analysis       </p>
+    </div>
+
+
+
+
+
+    <div class="button-container" style="text-align: center; margin-top: 20px;">
+        <button onclick="goToHomePage()" class="custom-button">
+            <i class="fas fa-arrow-left"></i> Go back to Main Chapter
+        </button>
+        
+        <button onclick="proceedToLesson2()" class="custom-button">
+            Proceed to Lesson 2 <i class="fas fa-arrow-right"></i>
+        </button>
+        
+    </div>
+
+
+    <script>
+
+        function goToHomePage() {
+        window.location.href = "CHAP1.html";
+        }
+        function proceedToLesson2() {
+            window.location.href = "lesson2.html";
+        }
+
+        
+    </script>
+    
+</body>
+</html>

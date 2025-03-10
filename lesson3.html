@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>CHAP1-LESSON3</title>
+    <style>
+        body {
+            background-color: #ebdaa8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body {
+            overflow-x: hidden;
+        }
+        .ict-text {
+            text-underline-offset: 100%;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            color: #421D1D;
+            margin-top: 20px;
+            padding: 20px 10px;
+        }
+        .header-container {
+            position: relative;
+            width: 100vw;
+            max-height: 300px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .header-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            opacity: 0.3;
+        }
+        .chapter-text {
+            position: absolute;
+            top: 35%;
+            left: 80px;
+            transform: translateY(-50%);
+            color: #3d1c1c;
+            font-size: 4em;
+            text-align: left;
+            width: auto;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            white-space: pre-line;
+        }
+        .chapter-text span {
+            font-weight: bold;
+        }
+
+        .bottom-line {
+            width: 90%;
+            height: 3px;
+            background-color: #2c1515;
+            margin: 30px auto 0;
+        }
+
+        .introduction-container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1.6em;
+            color: #2e1414;
+            background-color: #ebdaa8;
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.5;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: justify;
+        }
+
+        .introduction-container b {
+            font-weight: bold;
+        }
+
+        .introduction-container b a{
+            font-weight: bold;
+            font-size: 1.7em;
+        }
+
+        .indented-first-word {
+            display: inline-block;
+            text-indent: 2em;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .image-container img {
+            width: 100%;  /* Makes the image responsive */
+            max-width: 70%; /* Limits the size to 70% of the container */
+            height: auto;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto; /* Centers the image */
+        }
+
+        .image-title {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2e1414;
+            margin: 10px 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .section-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1.6em;
+            color: #2e1414;
+            background-color: #ebdaa8;
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.5;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: justify;
+            
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2e1414;
+            margin-bottom: 10px;
+        }
+
+        .section-header img {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between; /* Moves buttons to the farthest left and right */
+            width: 90%; /* Adjust this to control spacing */
+            margin: 0 auto; /* Centers the container */
+        }
+
+
+        .custom-button {
+            background-color: #421D1D;
+            color: white;
+            padding: 15px 30px; /* Increased padding for a bigger button */
+            font-size: 1.4em; /* Increased text size */
+            border: none;
+            border-radius: 12px; /* Slightly rounder corners */
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .custom-button:hover {
+            background-color: #2c1515;
+            transform: scale(1.05); /* Slightly enlarges button on hover */
+        }
+
+
+        .observe-header {
+            display: flex;
+            align-items: center;
+            font-size: 1.7em;
+            font-weight: bold;
+            color: #2e1414;
+            margin-bottom: 10px;
+        }
+
+        .observe-icon {
+            width: 80px;
+            height: 80px;
+            margin-right: 15px; /* Adjust spacing between icon and text */
+        }
+
+        @media (max-width: 1200px) {
+            .section-container {
+                font-size: 1.4em; /* Slightly smaller font size for tablets and larger screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-container {
+                font-size: 1.2em; /* Adjusted font size for tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-container {
+                font-size: 1.0em; /* Smaller font size for mobile */
+                padding: 10px;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .observe-header {
+                font-size: 1.5em;
+            }
+            .observe-icon {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .observe-header {
+                font-size: 1.3em;
+            }
+            .observe-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 1480px) {
+            .ict-text {
+                font-size: 1.8em;
+            }
+            .chapter-text {
+                font-size: 2.8em;
+            }
+        }
+
+
+        @media (max-width: 1024px) {
+            .ict-text {
+                font-size: 1.8em;
+            }
+            .chapter-text {
+                font-size: 2.2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ict-text {
+                font-size: 1.5em;
+            }
+            .chapter-text {
+                font-size: 2em;
+                left: 20px;
+                text-align: left;
+            }
+        }
+        @media (max-width: 480px) {
+            .ict-text {
+                font-size: 1.2em;
+            }
+            .chapter-text {
+                font-size: 1.5em;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .button-container {
+                flex-direction: column; /* Stack buttons on smaller screens */
+                align-items: center;
+                gap: 10px; /* Adds space between stacked buttons */
+            }
+
+            .custom-button {
+                width: 90%; /* Make buttons wider on small screens */
+            }
+        }
+        
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 30px;
+            padding: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .instructions-container {
+            width: 90%;  /* Flexible width */
+            max-width: 1200px;  /* Prevent excessive stretching */
+            margin: 20px auto;  /* Center it */
+            padding: 20px;
+            font-size: 1.5em;
+            color: #2e1414;
+            background-color: #ebdaa8;
+            border-radius: 10px;
+            line-height: 1.5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: left;
+            word-wrap: break-word; /* Ensures text wraps properly */
+        }
+
+        /* Tablet size adjustments */
+        @media (max-width: 1024px) {
+            .instructions-container {
+                width: 95%;
+                font-size: 1.3em;
+                padding: 15px;
+            }
+        }
+
+        /* Mobile-friendly layout */
+        @media (max-width: 768px) {
+            .instructions-container {
+                width: 100%;
+                font-size: 1.2em;
+                padding: 15px;
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width: 480px) {
+            .instructions-container {
+                width: 100%;
+                font-size: 1em;
+                padding: 10px;
+            }
+        }
+
+        /* Ultra-small screens (below 350px) */
+        @media (max-width: 350px) {
+            .instructions-container {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+        }
+
+        .hand-tools-section {
+            background-color: #ebdaa8;
+            padding: 2=0px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2e1414;
+            line-height: 1.6;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #421D1D;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        .tool-item {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .tool-description {
+            flex: 1;
+            font-size: 0.9em;
+            margin-right: 50px;
+        }
+
+        .tool-image {
+            width: 360px; /* Fixed width for the image container */
+            height: 360px; /* Fixed height for the image container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff; /* White background to keep it neat */
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            margin-left: 30px;
+        }
+
+        /* Image inside the container */
+        .tool-image img {
+            width: 320px; /* Increased size */
+            height: auto;
+            max-height: 320px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .tool-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .tool-image {
+                width: 200px; 
+                height: 200px;
+                margin-top: 10px;
+            }
+
+            .tool-image img {
+                width: 200px;
+                max-height: 200px;
+            }
+
+            .tool-description {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hand-tools-section {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            .tool-description {
+                font-size: 1.1em;
+            }
+
+            .tool-image {
+                width: 200px;
+                height: 150px;
+            }
+
+            .tool-image img {
+                width: 200px;
+                max-height: 200px;
+            }
+        }
+
+        .table-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .table-container img {
+            width: 100%;
+            max-width: 700px; /* Limits max size */
+            border: 2px solid #D4A76A;
+            border-radius: 5px;
+        }
+
+        .jinjinir-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .jinjinir-container img {
+            width: 100%;
+            max-width: 500px; /* Limits max size */
+            border: 2px solid #D4A76A;
+            border-radius: 5px;
+        }
+
+                /* QR Code Container */
+                .qr-container {
+            text-align: center;
+            width: 100%;
+            max-width: 600px; /* Keeps it contained */
+            margin: 0 auto;
+        }
+
+        /* QR Code Styling */
+        .qr-code {
+            width: 440px; /* Default size for desktop */
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            transition: width 0.3s ease-in-out; /* Smooth resizing */
+        }
+
+        /* Responsive Scaling */
+        @media (min-width: 1440px) { /* Large screens */
+            .qr-code {
+                width: 500px;
+            }
+        }
+
+        @media (min-width: 1600px) { /* Extra large screens */
+            .qr-code {
+                width: 600px;
+            }
+        }
+
+        @media (max-width: 1024px) { /* Laptops/Tablets */
+            .qr-code {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) { /* Tablets */
+            .qr-code {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) { /* Mobile */
+            .qr-code {
+                width: 240px;
+            }
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="ict-text">
+        INFORMATION AND COMMUNICATION TECHNOLOGY - Computer Systems Servicing (CSS)
+    </div>
+    <div class="header-container">
+        <img src="lesson3coverpage.jpeg" alt="Header Image" class="header-img">
+        <div class="chapter-text">
+            <span>Lesson 3</span> <br> Conducting routine inspections of tools: Ensuring Safety and Performance
+        </div>
+    </div>
+    <div class="bottom-line"></div>
+    <div class="introduction-container">
+        <div class="observe-header">
+            <img src="analysis.png" alt="Icon" class="observe-icon">
+            <b>Looking back to your lesson</b>
+        </div>
+        
+        <p style="margin-top: 80px;">
+            <b>IDENTIFY TOOLS</b>
+        </p>
+        <p><b>Instruction:</b> A set of statements/definition will be provided each number. Identify which proper use of tools provided based on the given choices. Write the letter of the correct answer and write your answers on a separate sheet of paper. </p>
+            <b>Choices:</b>
+            <p>a. Proper use of ESD Tools</p>
+            <p>b. Proper use of Hand Tools</p>
+            <p>c. Proper use of Cleaning Tools</p>
+        <b>Question:</b>
+
+        <ol style="padding-bottom: 20px; margin-top: 30px;">
+            <li style="margin-bottom: 15px; margin-left: 60px;">Match each screw with the proper screwdriver. Place the tip of the screwdriver on the head of the screw. </li>
+            <li style="margin-bottom: 15px; margin-left: 60px;">To clean the screens of CRT monitors, dampen a soft, clean, lint-free cloth with distilled water and wipe the screen from top to bottom.  </li>
+            <li style="margin-bottom: 15px; margin-left: 60px;">Clean the contacts on components with isopropyl alcohol. Do not use rubbing alcohol. </li>
+            <li style="margin-bottom: 15px; margin-left: 60px;">Wrap the strap around your wrist and secure it using the snap or Velcro. The metal on the back of the wrist strap must remain in contact with your skin at all times. </li>
+            <li style="margin-bottom: 15px; margin-left: 60px;">Use a hex driver to loosen and tighten bolts that have a hexagonal (six-sided) head. </li>
+        </ol>
+
+    </div>
+    <div class="bottom-line"></div>
+
+    <div class="section-container">
+        <div class="section-header">
+            <img src="activitylist.png" alt="Question Icon">
+            One Minute Inspection Routine!
+        </div>
+        <br>
+        <b style="font-size: 1.1em;">Activity Instruction:</b>
+        <ol>
+            <li>Think of an any object you have that you feel you need to inspect daily before or after using? <i>(e.g. the tint of your pen)</i></li>
+            <li style="margin-top: 15px;">The content in the presentation should state about your advice about inspecting the object and how do you execute it on your own.</li>
+            <li style="margin-top: 15px;">To make it more exciting, post your video/audio presentation online in social media or share it to your friends to spread awareness or new knowledge about what you present about inspection</li>
+        </ol> <br>
+        <b style="font-size: 1.1em;">Guide Questions:</b>
+        <ul>
+            <li>What is the purpose of your inspection routine?</li>
+            <li style="margin-top: 15px;">What are the key steps on doing your routine inspection?</li>
+            <li style="margin-top: 15px;">Can you share an experience where proper inspection prevented a problem?</li>
+        </ul>
+
+    </div>
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="conversation.png" alt="Question Icon">
+            What I need to know?
+        </div>
+        <br>
+        <b style="font-size: 1.3em;">Objectives:</b>
+        <br> <br>
+        <p>At the end of the lesson the student should be able to:</p>    
+        <ul></ul>
+        <ul style="font-size: 1.0em;">
+            <li>Analyze the criteria for tool wear and safety</li>
+            <li style="margin-top: 15px;">Perform visual inspections procedures</li>
+            <li style="margin-top: 15px;">Demonstrate proper handling, cleaning, and storage of tools. </li>
+            <li style="margin-top: 15px;">Document and report the findings accurately</li>
+            <li style="margin-top: 15px;">Foster an attitude of care and respect for tools and workplace safety. </li>
+        </ul>
+        
+        </ul>
+    </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="content.png" alt="Lightbulb Icon">
+            What to know
+        </div>
+        <div class="content-section">
+            
+            <p style="margin-top: 30px;"><span class="indented-first-word">In</span> the realm of occupational health and safety, inspections serve as a critical line of defense against workplace hazards, ensuring environments are not just compliant with regulations but also conducive to the well-being of employees. This blog delves into the essence of safety inspections, exploring their various types, the systematic process involved in conducting them, and the overarching purpose they fulfill.</p>
+            <h2 style="font-size: 1.4em; margin-top: 60px;">Types of Personal Protective Equipment (PPE)</h2>
+            <div class="tool-item">
+                <div class="tool-description">
+                    <p style="margin-bottom: 50px;"><b>1. Head Protection</b></p>
+                    <p style="text-justify: auto;">Wearing a helmet is essential for preventing head injuries. Choose a sturdy helmet that suits your working conditions. Modern designs offer both safety and comfort, with features such as adjustable interior harnesses and sweatbands.</p>
+                </div>
+                <div class="tool-image">
+                    <img src="headprotection.png" alt="Head Protection">
+                </div>
+            </div>
+
+            <div class="tool-item">
+                <div class="tool-description">
+                    <p style="margin-bottom: 50px;"><b>2. Eye Protection</b></p>
+                    <p style="text-justify: auto;">Our eyes are delicate and vulnerable to injury. Every day, more than 600 people worldwide suffer work-related eye injuries. A good pair of safety glasses can help prevent these incidents. If you are exposed to bright light or infrared radiation, consider using welding goggles or a protective shield</p>
+                </div>
+                <div class="tool-image">
+                    <img src="eyeprotection.png" alt="Eye Protection">
+                </div>
+            </div>
+
+            <div class="tool-item">
+                <div class="tool-description">
+                    <p style="margin-bottom: 50px;"><b>3. Hearing Protection</b></p>
+                    <p style="text-justify: auto;">Working in noisy environments requires proper hearing protection. Earplugs are a comfortable option, while earmuffs offer convenience as they can be easily put on or removed as needed.</p>
+                </div>
+                <div class="tool-image">
+                    <img src="hearingprotection.png" alt="Hearing Protection">
+                </div>
+            </div>
+
+            <div class="tool-item">
+                <div class="tool-description">
+                    <p style="margin-bottom: 50px;"><b>4. Respiratory Protection</b></p>
+                    <p style="text-justify: auto;">Wearing a mask is crucial when working with hazardous materials. Around 15% of workers in the EU are exposed to vapors, smoke, dust, or other harmful particles. Dust masks help filter fine particles, while full-face masks provide additional protection against toxic substances by sealing tightly around the face</p>
+                </div>
+                <div class="tool-image">
+                    <img src="respiratoryprotection.png" alt="Respiratory Protection">
+                </div>
+            </div>
+
+            <div class="tool-item">
+                <div class="tool-description">
+                    <p style="margin-bottom: 50px;"><b>5. Hand Protection</b></p>
+                    <p style="text-justify: auto;">Hands and fingers are often at risk of injury, making it essential to wear the right gloves. Depending on your work environment, gloves can provide protection against:</p>
+                    <ul>
+                        <li>Vibrations</li>
+                        <li>Cuts from sharp materials</li>
+                        <li>Heat or cold</li>
+                        <li>Bacterial risks</li>
+                        <li>Chemical splashes</li>
+                    </ul>
+                <p>Selecting the appropriate PPE helps ensure workplace safety and reduces the risk of injury.</p>
+                </div>
+                <div class="tool-image">
+                    <img src="handprotection.png" alt="Hand Protection">
+                </div>
+            </div>
+
+            <div class="tool-item">
+                <div class="tool-description">
+                    <p style="margin-bottom: 50px;"><b>6. Foot Protection</b></p>
+                    <p style="text-justify: auto;">Your feet require proper protection too. Safety shoes (types Sb, S1, S2, or S3) and boots (types S4 or S5) provide essential protection against heavy objects. An anti-slip sole is particularly useful in damp environments, as 16.2% of industrial accidents result from slipping or tripping. For slippery surfaces like snow and ice, shoes with claws offer better grip. Special socks can also add extra comfort. </p>
+                </div>
+                <div class="tool-image">
+                    <img src="footprotection.png" alt="Foot Protection">
+                </div>
+            </div>
+
+            <div class="tool-item">
+                <div class="tool-description">
+                    <p style="margin-bottom: 50px;"><b>7. Proper Work Clothing</b></p>
+                    <p style="text-justify: auto;">Wearing the right work attire is key to preventing accidents in busy environments. High-visibility jackets and durable pants enhance safety by making workers more noticeable. Just like gloves, work clothing comes in different versions tailored to specific applications. </p>
+                </div>
+                <div class="tool-image">
+                    <img src="pwc.png" alt="Proper Work Clothing">
+                </div>
+            </div>
+            <br> <br>
+            <h4 style="font-size: 1.2em;">Worst Case Scenario</h4>
+            <p style="font-size: 0.9em;"><span class="indented-first-word">Prevention</span> is always better than cure, but being prepared for emergencies is essential. A standard first-aid kit is crucial, and having one specifically for eye injuries is also advisable. If an employee comes into contact with chemicals, a safety shower is necessary to allow for immediate decontamination.</p>
+
+            <h4 style="font-size: 1.2em;">Preventing Accidents with Pictograms</h4>
+            <p style="font-size: 0.9em;"><span class="indented-first-word">A</span> well-organized workshop reduces the risk of accidents. One effective way to enhance safety is by using pictograms to indicate:</p>
+            <ul>
+                <li>Flammable materials</li>
+                <li>Hearing protection requirements</li>
+                <li>Emergency exits</li>
+            </ul>
+            <p style="font-size: 0.9em;"><span class="indented-first-word">By</span> incorporating clear safety signage, workplaces can prevent serious injuries and create a safer environment for everyone.</p>
+        </div>
+    </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="content-section">
+            <h3>Tool Inspection Practices</h3>
+            <br>
+            <p style="margin-top: 30px; font-size: 1.1em;">1.  Pre-Use Inspection Routine</p>
+            <p style="font-size: 1.0em;">Establish a routine inspection before using hand or power tools.
+            Check for loose parts, damaged handles, or any signs of wear before starting work.</p>
+
+            <p style="margin-top: 50px; font-size: 1.1em;">2. Regular Maintenance Schedule</p>
+            <p style="font-size: 1.0em;">Replace damaged or worn-out parts promptly.
+                Avoid using tools with compromised functionality to prevent accidents and injuries.
+                </p>
+
+            <p style="margin-top: 50px; font-size: 1.1em;">3. Replacement of Worn-Out Parts</p>
+            <p style="font-size: 1.0em;">Implement a consistent maintenance schedule for all tools.
+                Conduct regular inspections, lubrication, and adjustments to extend tool lifespan and maintain optimal performance.</p>
+
+            <p style="margin-top: 50px; font-size: 1.1em;">4. Documentation of Inspections</p>
+            <p style="font-size: 1.0em;">Keep records of all tool inspections and maintenance activities.
+                Maintain a log for each tool, tracking its condition, usage history, and any repairs.
+                </p>
+            
+            <p style="margin-top: 50px; font-size: 1.1em;">5. Employee Training on Inspection</p>
+            <p style="font-size: 1.0em;">Provide employees with proper training on tool inspections.
+                Encourage workers to identify and report any issues, fostering a proactive safety culture.
+                </p> <br>
+            
+            <b>By following these best practices, workplaces can ensure tool safety, reduce risks, and maintain efficiency.</b  >
+        </div>
+    </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="content-section">
+            <h3>Top 10 Benefits of Tool Inspections </h3>
+
+            <p style="margin-top: 30px; font-size: 1.1em;"><span class="indented-first-word"><b>Regular</b></span> tool inspections provide numerous benefits, ensuring safety, efficiency, and longevity. Here are the top 10 advantages: </p>
+
+            <br>
+            <p style="margin-top: 30px; font-size: 1.1em;"><b>1. Enhanced Safety: </b></p>
+            <p style="font-size: 1.0em;">Routine inspections confirm that tools function properly, reducing the risk of accidents caused by faulty or worn-out equipment.</p>
+
+            <p style="margin-top: 30px; font-size: 1.1em;"><b>2. Prolonged Tool Lifespan:  </b></p>
+            <p style="font-size: 1.0em;">Early detection and resolution of issues help extend a tool’s operational life, maximizing its value over time.</p>
+
+            <p style="margin-top: 30px; font-size: 1.1em;"><b>3. Consistent Performance: </b></p>
+            <p style="font-size: 1.0em;">Inspections ensure tools operate at peak efficiency, leading to reliable output quality and improved task execution.</p>
+
+            <p style="margin-top: 30px; font-size: 1.1em;"><b>4. Cost Savings:  </b></p>
+            <p style="font-size: 1.0em;">Identifying problems early prevents costly repairs or replacements, reducing downtime and boosting productivity.</p>
+
+            <p style="margin-top: 30px; font-size: 1.1em;"><b>5. Regulatory Compliance:  </b></p>
+            <p style="font-size: 1.0em;">Many industries require tool maintenance for safety compliance, helping organizations avoid legal penalties or fines.</p>
+
+            <p style="margin-top: 30px; font-size: 1.1em;"><b>6. Increased Productivity: </b></p>
+            <p style="font-size: 1.0em;">Well-maintained tools operate optimally, minimizing delays and enhancing overall work efficiency.</p>
+
+            <p style="margin-top: 30px; font-size: 1.1em;"><b>7. Reduced Downtime:  </b></p>
+            <p style="font-size: 1.0em;">Addressing potential issues before they escalate helps prevent unexpected breakdowns and operational disruptions.</p>
+
+            <p style="margin-top: 30px; font-size: 1.1em;"><b>8. Trust and Reliability:  </b></p>
+            <p style="font-size: 1.0em;">Knowing that tools are in excellent condition fosters confidence among workers, ensuring they can depend on their equipment.</p>
+
+            <p style="margin-top: 30px; font-size: 1.1em;"><b>9. Data-Driven Decision Making:  </b></p>
+            <p style="font-size: 1.0em;">Inspection records provide valuable insights, guiding decisions on repairs, replacements, and technological upgrades.</p>
+
+            <p style="margin-top: 30px; font-size: 1.1em;"><b>10. Environmental Benefits:  </b></p>
+            <p style="font-size: 1.0em;">Properly maintained tools use fewer resources, reduce waste, and contribute to a lower environmental footprint.</p>
+
+            <br>
+
+            <p><b>By prioritizing regular inspections, businesses can improve safety, efficiency, and cost-effectiveness while ensuring long-term tool performance.</b></p>
+        </div>
+    </div>
+
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="content.png" alt="Lightbulb Icon">
+             Inspect and Write!
+        </div>
+        <p style="margin-top: 50px;"><span class="indented-first-word">To </span> get your full mastery of inspecting tools and its proper documentation. Let's have some Practice Activity!</p>
+        <br>
+        <h4 style="font-size: 1.1em; margin-top: 10px;">Instructions:</h4>
+        <ol style="font-size: 0.9em;">
+            <li>Pick any basic hand tool you have at home <i>(e.g., screwdriver, wrench, pliers).</i></li>
+            <li style="padding-top: 20px;">Look at the tool closely and check for:</li>
+            <p>• Rust/Dirt </p>
+            <p>• Cracks, bends, or damage </p>
+            <p>• Loose or missing parts </p>
+            <li style="padding-top: 20px;">Answer the questions provided at the bottom</li>
+            <p>-What tool did you inspect? </p>
+            <p>-What condition is it in? </p>
+            <p>-Is it safe to use? Why or why not? </p>
+            <p>-What should you do to maintain or repair it? </p>
+            <li style="padding-top: 20px;">Write your answer together with your name in a piece of a4 bond paper.</li>
+
+        </ol> <br> <br>
+        <p style="font-size: 1.1em;"><span class="indented-first-word">This</span> activity helped you understand the importance of inspecting tools for safety and maintenance. You learned how to check for damage and ensure tools are in good condition before use. Regular inspection prevents accidents and keeps tools effective for longer.</p>
+     </div>
+    
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="determination.png" alt="Lightbulb Icon">
+            Apply and Perform
+        </div>
+            <p><b>Labtask: Individual Performance </b></p> 
+        <h4>Instructions:</h4>
+        <ol>
+            <li>Conduct a hands-on tool inspection activity where students must utilize a checklist to detect potential dangers and apply PPE properly.</li>
+            <li style="margin-top: 10px;">Students will conduct a timed tool usage test, completing a specific task, evaluating inefficiencies and malfunctions, and suggesting improvements to enhance tool performance.</li>
+            <li style="margin-top: 10px;">Students will create a maintenance schedule for frequently used tools, detailing routine checks and repairs, and implementing the plan, logging actions, and reflecting on preventative maintenance's benefits.</li>
+            <li style="margin-top: 10px;">Present the inspection report to the class or instructor, describing the results and justifying the suggested changes to enhance tool safety and efficiency.</li>
+            <li style="margin-top: 10px;">The student effectively communicates and justifies their findings and proposed solutions during the presentation, demonstrating a thorough understanding of the inspection process. </li>
+            <li style="margin-top: 10px;">Show how to properly handle, clean, and store tools after use </li>
+            
+            <!-- Table Image -->
+            <div class="table-container", style="margin-top: 50px;">
+                <img src="lesson3rubric.png" alt="Lesson 3 Rubrics">
+            </div>
+
+        </ol> <br>
+        </div>
+     </div>
+
+     
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="copy-writing.png" alt="Lightbulb Icon">
+            What to Check
+        </div>
+    <p>
+        <span class="indented-first-word">Now</span> that you have learned about conducting routine inspections of tools to ensure safety and performance, it is essential to follow recommended procedures. Proper tool maintenance and inspections help prevent hazards, improve efficiency, and extend the lifespan of equipment. Carefully consider each step to enhance safety and effectiveness.
+    </p>
+    <b>How to access the short quiz:</b>
+    <a href="https://forms.gle/ieyomG613Xr5HHQ98" target="_blank" rel="noopener noreferrer" 
+        style="display: inline-block; padding: 12px 20px; background-color: #4D1C1C; 
+                color: white; font-size: 16px; border-radius: 8px; text-decoration: none; 
+                font-weight: bold; text-align: center; transition: 0.3s ease;">
+        📄 Open Google Form
+    </a><br>
+    <p><b>Make sure to answer the short quiz before proceeding. Good Luck!</b></p>
+    </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container">
+        <div class="section-header">
+            <img src="learning.png" alt="Lightbulb Icon">
+            What I have learned?
+        </div>
+        <p style="margin-top: 50px;"><span class="indented-first-word">After</span> completing the practical tasks (cleaning, inspecting, and organizing tools),</p> 
+        <p><span class="indented-first-word">Remember</span> to keep your tool's instruction manuals. The maker gives them to you so that you may use your tools safely and effectively. They will also contain useful advice on how to find replacement components, take care of the tool, and other crucial details. To keep them easily accessible, keep manuals in a cabinet or toolbox drawer in your workstation or storage space. 
+        <p><b>(In a sheet of paper, answer the following guide questions)</b></p>
+        <h4>Guide Questions:</h4>
+        <ol>
+            <li>Describe your initial thoughts about the lesson on conducting routine inspections of tools. In what ways did you find the content relevant to your current work or personal experiences? Provide specific examples.</li>
+            <li style="margin-top: 10px;">What aspect of the lesson did you find most valuable, and why?</li>
+        <br>
+        
+     </div>
+
+    <div class="bottom-line"></div>
+    <div class="section-container"> 
+        <h2>References:</h2>
+            <p>HSE Blog. (n.d.). Safety inspection: A complete guide. Retrieved from https://www.hseblog.com/safety-inspection/ </p>
+            <p>HSE Study Guide. (n.d.). Hand and power tool safety: A comprehensive guide. Retrieved from https://www.hsestudyguide.com/hand-and-power-tool-safety/
+            </p>
+            <p>HSE Blog. (n.d.). Tools inspection: Everything you need to know. Retrieved from https://www.hseblog.com/tools-inspection/</p>      
+    </div>
+
+
+
+
+
+    <div class="button-container" style="text-align: center; margin-top: 20px;">
+        <button onclick="goToLesson2()" class="custom-button">
+            <i class="fas fa-arrow-left"></i> Go back to Lesson 2
+        </button>
+        
+        <button onclick="proceedToLesson4()" class="custom-button">
+            Proceed to Lesson 4 <i class="fas fa-arrow-right"></i>
+        </button>
+        
+    </div>
+
+
+    <script>
+
+        function goToLesson2() {
+        window.location.href = "lesson2.html";
+        }
+        function proceedToLesson4() {
+            window.location.href = "lesson4.html";
+        }
+
+        
+    </script>
+    
+</body>
+</html>
