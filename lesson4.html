@@ -90,6 +90,25 @@
             text-indent: 2em;
         }
 
+        /* Responsive adjustments */
+        @media (max-width: 768px) { /* Tablets */
+            .indented-first-word {
+                padding-left: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) { /* Mobile phones */
+            .indented-first-word {
+                padding-left: 1em;
+            }
+        }
+
+        @media (max-width: 360px) { /* Smaller phones */
+            .indented-first-word {
+                padding-left: 0.8em;
+            }
+        }
+
         .image-container {
             text-align: center;
             margin: 40px 0;
@@ -513,6 +532,7 @@
 
         .input-container input {
             width: 100%;
+            max-width: 350px; /* Limits input width even on small screens */
             padding: 8px;
             font-size: 1em;
             border: 1px solid #D4A76A;
@@ -528,6 +548,18 @@
 
             .input-container input {
                 font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) { /* Targets small phones */
+            .input-container input {
+                max-width: 280px; /* Adjust as needed */
+            }
+        }
+
+        @media (max-width: 360px) { /* Targets small phones */
+            .input-container input {
+                max-width: 280px; /* Adjust as needed */
             }
         }
 
@@ -561,6 +593,7 @@
                 width: 240px;
             }
         }
+        
 
         .learning-form {
         display: flex;
