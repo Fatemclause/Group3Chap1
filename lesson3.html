@@ -1025,7 +1025,7 @@
                 const fileType = file.type;
                 previewContainer.innerHTML = ""; // Clear previous preview
 
-                if (fileType === "image/png" || fileType === "image/jpeg" || fileType === "image/jpg") {
+                if (fileType.startsWith("image/")) {
                     // If image (PNG, JPG)
                     const img = document.createElement("img");
                     img.src = URL.createObjectURL(file);
@@ -1034,13 +1034,13 @@
                     previewContainer.appendChild(img);
                 } 
                 else if (fileType === "application/pdf") {
-                    // If PDF
-                    const iframe = document.createElement("iframe");
-                    iframe.src = URL.createObjectURL(file);
-                    iframe.style.width = "100%";
-                    iframe.style.height = "500px"; // Adjust height if needed
-                    iframe.style.border = "none";
-                    previewContainer.appendChild(iframe);
+                    // If PDF (Better mobile support)
+                    const embed = document.createElement("embed");
+                    embed.src = URL.createObjectURL(file);
+                    embed.style.width = "100%";
+                    embed.style.height = "500px"; // Adjust for better mobile viewing
+                    embed.type = "application/pdf";
+                    previewContainer.appendChild(embed);
                 } 
                 else {
                     alert("Only PNG, JPG, and PDF files are allowed.");
