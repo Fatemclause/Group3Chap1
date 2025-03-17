@@ -901,12 +901,12 @@
             <p>-What condition is it in? </p>
             <p>-Is it safe to use? Why or why not? </p>
             <p>-What should you do to maintain or repair it? </p>
-            <li style="padding-top: 20px;">Write your answer together with your name in a piece of a4 bond paper. And save it as png or pdf (must better if png). And click the button below to submit the file and preview</li>
+            <li style="padding-top: 20px;">Write your answer together with your name in a piece of a4 bond paper. And save it as png or jpg (must better if png). And click the button below to submit the file and preview</li>
 
             <!-- File Upload Section -->
             <div class="file-container">
-                <h4>Upload a PNG, JPG, or PDF File</h4>
-                <input type="file" id="fileInput" accept=".png, .jpg, .jpeg, .pdf">
+                <h4>Upload a PNG or JPG file</h4>
+                <input type="file" id="fileInput" accept=".png, .jpg, .jpeg">
                 <div id="preview-container"></div>
             </div>
 
@@ -1033,17 +1033,9 @@
                     img.style.height = "auto";
                     previewContainer.appendChild(img);
                 } 
-                else if (fileType === "application/pdf") {
-                    // If PDF (Better mobile support)
-                    const embed = document.createElement("embed");
-                    embed.src = URL.createObjectURL(file);
-                    embed.style.width = "100%";
-                    embed.style.height = "500px"; // Adjust for better mobile viewing
-                    embed.type = "application/pdf";
-                    previewContainer.appendChild(embed);
-                } 
+
                 else {
-                    alert("Only PNG, JPG, and PDF files are allowed.");
+                    alert("Only PNG and JPG files are allowed.");
                     event.target.value = "";
                 }
             }
