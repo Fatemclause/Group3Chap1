@@ -904,11 +904,11 @@
             <li style="padding-top: 20px;">Write your answer together with your name in a piece of a4 bond paper. And save it as png or pdf (must better if png). And click the button below to submit the file and preview</li>
 
             <!-- File Upload Section -->
-        <div class="file-container">
-            <h4>Upload a PNG or PDF File</h4>
-            <input type="file" id="fileInput" accept=".png, .pdf">
-            <div id="preview-container"></div>
-        </div>
+            <div class="file-container">
+                <h4>Upload a PNG, JPG, or PDF File</h4>
+                <input type="file" id="fileInput" accept=".png, .jpg, .jpeg, .pdf">
+                <div id="preview-container"></div>
+            </div>
 
         </ol> <br> <br>
         <p style="font-size: 1.1em;"><span class="indented-first-word">This</span> activity helped you understand the importance of inspecting tools for safety and maintenance. You learned how to check for damage and ensure tools are in good condition before use. Regular inspection prevents accidents and keeps tools effective for longer.</p>
@@ -1025,7 +1025,8 @@
                 const fileType = file.type;
                 previewContainer.innerHTML = ""; // Clear previous preview
 
-                if (fileType === "image/png") {
+                if (fileType === "image/png" || fileType === "image/jpeg" || fileType === "image/jpg") {
+                    // If image (PNG, JPG)
                     const img = document.createElement("img");
                     img.src = URL.createObjectURL(file);
                     img.style.maxWidth = "100%";
@@ -1033,6 +1034,7 @@
                     previewContainer.appendChild(img);
                 } 
                 else if (fileType === "application/pdf") {
+                    // If PDF
                     const iframe = document.createElement("iframe");
                     iframe.src = URL.createObjectURL(file);
                     iframe.style.width = "100%";
@@ -1041,12 +1043,11 @@
                     previewContainer.appendChild(iframe);
                 } 
                 else {
-                    alert("Only PNG and PDF files are allowed.");
+                    alert("Only PNG, JPG, and PDF files are allowed.");
                     event.target.value = "";
                 }
             }
         });
-
         
     </script>
     
