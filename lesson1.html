@@ -523,7 +523,111 @@
             }
         }
 
+        .learning-form-a {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 700px;
+            margin: 0; /* Remove centering */
+            font-size: 1.0em;
+            text-align: left; /* Ensure left alignment */
+            min-height: 600px; /* Increase overall form height */
+        }
 
+        .learning-form-a label {
+            margin-top: 10px;
+        }
+
+        .learning-form-a textarea {
+            min-height: 250px; /* Increase default height */
+            max-height: 500px; /* Allow some flexibility */
+            width: 100%;
+            padding: 15px; /* More spacing inside */
+            font-size: 1.1em;
+            border: 1px solid #D4A76A;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            resize: vertical; /* Allows users to expand the text area */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) { /* Tablets */
+            .learning-form-a {
+                min-height: 500px;
+            }
+
+            .learning-form-a textarea {
+                min-height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) { /* Mobile */
+            .learning-form-a {
+                min-height: 400px;
+            }
+
+            .learning-form-a textarea {
+                min-height: 180px;
+            }
+        }
+
+    @media (max-width: 1024px) {
+        .learning-form-a {
+            margin: 0 auto; /* Center it on smaller screens */
+            width: 90%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .learning-form-a {
+            text-align: center; /* Center-align for smaller screens */
+        }
+
+        .learning-form-a textarea {
+            font-size: 0.6em;
+        }
+    }
+
+    .learning-form-b {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 700px;
+        margin: 0; /* Remove centering */
+        font-size: 1.0em;
+        text-align: left; /* Ensure left alignment */
+    }
+
+    .learning-form-b label {
+        margin-top: 10px;
+    }
+
+    .learning-form-b textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        border: 1px solid #D4A76A;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        resize: vertical; /* Allows users to expand the text area */
+    }
+
+    @media (max-width: 1024px) {
+        .learning-form-b {
+            margin: 0 auto; /* Center it on smaller screens */
+            width: 90%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .learning-form-b {
+            text-align: center; /* Center-align for smaller screens */
+        }
+
+        .learning-form-b textarea {
+            font-size: 0.6em;
+        }
+    }
 
 
     </style>
@@ -562,14 +666,21 @@
             <li>Based on the pictures shown above, list the name of each device and their uses.</li>
             <li>What tools do you think would associate with each of them if they need maintenance, cleaning, or repairing? Jot down your answers and justifications on the paper.</li>
         </ol>
-        <br>    
+        <form class="learning-form-a">
+            <textarea id="q4" name="q4" placeholder="Type your answer here..."></textarea>
+        </form>
     
         <h2>Guide Questions:</h2>
-        <ul>
-            <li>What task does each tool help with within the context of this device?</li>
-            <li>Why is it important to use the correct tool for this task?</li>
-            <li>Can you think of any additional tools that could be used for this device?</li>
-        </ul>
+        <form class="learning-form-b">
+            <label for="q1">1. What task does each tool help with within the context of this device?</label>
+            <textarea id="q1" name="q1" placeholder="Type your answer here..."></textarea>
+    
+            <label for="q2">2. Why is it important to use the correct tool for this task?</label>
+            <textarea id="q2" name="q2" placeholder="Type your answer here..."></textarea>
+    
+            <label for="q3">3. Can you think of any additional tools that could be used for this device?</label>
+            <textarea id="q3" name="q3" placeholder="Type your answer here..."></textarea>
+        </form>
     </div>
     <div class="bottom-line"></div>
 
@@ -917,13 +1028,23 @@
             <p style="margin-top: 50px;"><span class="indented-first-word">The</span> selection of the appropriate tool for the task is much more convenient when you consider the safety, efficiency, and successful task completion. Employing the proper tools eliminates the potential for injury, reduces damage to components, and makes it possible to get the work done with accuracy and ease. In computer system maintenance, one minor error—such as an incorrect screwdriver or failure to use ESD protection—can create expensive mistakes.</p> 
             <p><span class="indented-first-word">As</span> you think about this lesson, think about how ethical tool choice applies to real-life servicing situations. In a sheet of paper make a <b>reflection-essay</b> about what you learned from the lesson, use the guide question to organize your thinking and relate your learning to real-world applications. 
         <h4>Guide Questions:</h4>
-        <ol>
-            <li>Why is safety a major consideration when selecting hand tools for a task? Can you recall a situation where improper tool use led to a safety risk?</li>
-            <li style="margin-top: 10px;">How does using the correct tool improve work efficiency? What challenges might arise if the wrong tool is used?</li>
-            <li style="margin-top: 10px;">In what ways does proper tool selection help maintain the quality and longevity of both tools and computer components?</li>
-            <li style="margin-top: 10px;">How do industry standards and best practices guide tool selection in computer system servicing?</li>
-            <li style="margin-top: 10px;">What lessons did you learn from this topic that you can apply in real-world troubleshooting and repair scenarios?</li>
-        <br>
+
+        <form class="learning-form-b">
+            <label for="q1">1. Why is safety a major consideration when selecting hand tools for a task? Can you recall a situation where improper tool use led to a safety risk?</label>
+            <textarea id="q1" name="q1" placeholder="Type your answer here..."></textarea>
+    
+            <label for="q2">2. How does using the correct tool improve work efficiency? What challenges might arise if the wrong tool is used?</label>
+            <textarea id="q2" name="q2" placeholder="Type your answer here..."></textarea>
+    
+            <label for="q3">3. In what ways does proper tool selection help maintain the quality and longevity of both tools and computer components?</label>
+            <textarea id="q3" name="q3" placeholder="Type your answer here..."></textarea>
+
+            <label for="q4">4. How do industry standards and best practices guide tool selection in computer system servicing?</label>
+            <textarea id="q4" name="q4" placeholder="Type your answer here..."></textarea>
+
+            <label for="q5">5. What lessons did you learn from this topic that you can apply in real-world troubleshooting and repair scenarios?</label>
+            <textarea id="q5" name="q5" placeholder="Type your answer here..."></textarea>
+        </form>
         
      </div>
 

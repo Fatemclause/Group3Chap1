@@ -523,6 +523,46 @@
             }
         }
 
+        .learning-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 700px;
+            margin: 0; /* Remove centering */
+            font-size: 1.0em;
+            text-align: left; /* Ensure left alignment */
+        }
+
+        .learning-form label {
+            margin-top: 10px;
+        }
+
+        .learning-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #D4A76A;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            resize: vertical; /* Allows users to expand the text area */
+        }
+
+        @media (max-width: 1024px) {
+            .learning-form {
+                margin: 0 auto; /* Center it on smaller screens */
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .learning-form {
+                text-align: center; /* Center-align for smaller screens */
+            }
+
+            .learning-form textarea {
+                font-size: 0.6em;
+            }
+        }
 
 
 
@@ -538,61 +578,25 @@
             <span>Lesson 2:</span> <br> Arranging and Checking Hand Tools
         </div>
     </div>
+
     <div class="bottom-line"></div>
     <div class="introduction-container">
-        <div class="observe-header">
-            <img src="analysis.png" alt="Icon" class="observe-icon">
+        <div class="section-header">
+            <img src="analysis.png" alt="Lightbulb Icon">
             <b>Looking back to your lesson</b>
         </div>
-        
-        <p style="margin-top: 80px;">
-            <b> A. TRUE OR FALSE </b>
-        </p>
-        <p><b>Instruction:</b> Write TRUE if the statement is correct and FALSE if it is wrong. Write your answers on a separate sheet of paper. </p>
-        <ol style="padding-bottom: 20px; margin-top: 30px;">
-            <li style="margin-bottom: 15px; margin-left: 60px;">Planning a task does not require identifying the necessary tools or equipment. </li>
-            <li style="margin-bottom: 15px; margin-left: 60px;">Task complexity affects the selection of tools and techniques needed to complete a task. </li>
-            <li style="margin-bottom: 15px; margin-left: 60px;">Simple tasks require specialized tools and advanced skills. </li>
-            <li style="margin-bottom: 15px; margin-left: 60px;">Proper planning helps minimize mistakes and improve productivity. </li>
-            <li style="margin-bottom: 15px; margin-left: 60px;">Examining the workplace for potential hazards is an important part of planning a task. </li>
-            
-        </ol>
-
-        <p style="margin-top: 50px;">
-            <b> B. MULTIPLE CHOICE </b>
-        </p>
-        <p><b>Instruction:</b> Read and understand each question carefully and choose the letter of the correct answer. Write your answers on a sheet of paper </p>
-        <p style="margin-bottom: 15px; margin-left: 60px">6. Which tool is used for hardware to stand on to prevent static electricity from building up? </p>
-        <p style="margin-left: 150px">a. Anti-static mat</p>
-        <p style="margin-left: 150px">b. Hex Driver</p>
-        <p style="margin-left: 150px">c. Philips head screwdriver</p>
-        <p style="margin-left: 150px">d. Wire Cutter</p>
-        
-        <p style="margin-bottom: 15px; margin-left: 60px">7. Which tool is used to loosen or tighten cross-head screws?  </p>
-        <p style="margin-left: 150px">a. Anti-static mat</p>
-        <p style="margin-left: 150px">b. Hex Driver</p>
-        <p style="margin-left: 150px">c. Philips head screwdriver</p>
-        <p style="margin-left: 150px">d. Wire Cutter</p>
-
-        <p style="margin-bottom: 15px; margin-left: 60px">8. Which tool is sometimes called a nut driver? It is used to tighten nuts in the same way that a screwdriver tightens screws?  </p>
-        <p style="margin-left: 150px">a. Anti-static mat</p>
-        <p style="margin-left: 150px">b. Hex Driver</p>
-        <p style="margin-left: 150px">c. Philips head screwdriver</p>
-        <p style="margin-left: 150px">d. Wire Cutter</p>
-
-        <p style="margin-bottom: 15px; margin-left: 60px">9. Which tool is used to strip and cut wires?  </p>
-        <p style="margin-left: 150px">a. Anti-static mat</p>
-        <p style="margin-left: 150px">b. Hex Driver</p>
-        <p style="margin-left: 150px">c. Philips head screwdriver</p>
-        <p style="margin-left: 150px">d. Wire Cutter</p>
-
-        <p style="margin-bottom: 15px; margin-left: 60px">10. Which tool is used to retrieve parts from location that are too small for your hand to fit?  </p>
-        <p style="margin-left: 150px">a. Part Retriever</p>
-        <p style="margin-left: 150px">b. Lint-free Cloth</p>
-        <p style="margin-left: 150px">c. Cable ties</p>
-        <p style="margin-left: 150px">d. Flathead screwdriver</p>
-
+    <p>
+        <span class="indented-first-word">Before</span> heading to Lesson 2, do you still remember all of your learnings from Lesson 1? Let's check it out! Please answer the review quiz linked down below to access the google form for review quiz. 
+    </p>
+    <b>How to access the review quiz:</b>
+    <a href="https://forms.gle/sPjbXyrgKqE5ZGyB6" target="_blank" rel="noopener noreferrer" 
+        style="display: inline-block; padding: 12px 20px; background-color: #4D1C1C; 
+                color: white; font-size: 16px; border-radius: 8px; text-decoration: none; 
+                font-weight: bold; text-align: center; transition: 0.3s ease;">
+        📄 Open Google Form
+    </a><br>
     </div>
+
     <div class="bottom-line"></div>
 
     <div class="section-container">
@@ -608,11 +612,18 @@
             <li style="margin-top: 15px;">Now, picture using a damaged or rusty tool—how could it affect your work and safety?</li>
         </ol> <br>
         <b style="font-size: 1.1em;">Guide Questions:</b>
-        <ul>
-            <li>What problems might arise if tools are disorganized?</li>
-            <li style="margin-top: 15px;">Why is it important to check tools before using them?</li>
-            <li style="margin-top: 15px;">How does tool maintenance contribute to work quality and productivity?</li>
-        </ul>
+
+        <form class="learning-form">
+            <label for="q1">1. What problems might arise if tools are disorganized?</label>
+            <textarea id="q1" name="q1" placeholder="Type your answer here..."></textarea>
+    
+            <label for="q2">2. Why is it important to check tools before using them?</label>
+            <textarea id="q2" name="q2" placeholder="Type your answer here..."></textarea>
+    
+            <label for="q3">3. How does tool maintenance contribute to work quality and productivity?</label>
+            <textarea id="q3" name="q3" placeholder="Type your answer here..."></textarea>
+
+        </form>
 
     </div>
     <div class="bottom-line"></div>
@@ -882,11 +893,17 @@
             </div>
             <br>
             <h3>Guide Questions:</h3>
-            <ul>
-                <li>Why is it important to arrange tools properly?</li>
-                <li style="padding-top: 20px;">How did organizing the tools help you in identifying their use?</li>
-                <li style="padding-top: 20px;">What problems might arise if tools are disorganized?</li>
-            </ul>
+
+            <form class="learning-form">
+                <label for="q1">1. Why is it important to arrange tools properly?</label>
+                <textarea id="q1" name="q1" placeholder="Type your answer here..."></textarea>
+        
+                <label for="q2">2. How did organizing the tools help you in identifying their use?</label>
+                <textarea id="q2" name="q2" placeholder="Type your answer here..."></textarea>
+        
+                <label for="q3">3. What problems might arise if tools are disorganized?</label>
+                <textarea id="q3" name="q3" placeholder="Type your answer here..."></textarea>
+            </form>
 
         </ol>
      </div>
@@ -967,15 +984,28 @@
             <h3 style="margin-top: 50px;">Generalization (Reflection Writing)</h3>
             <p>Write a short reflection answering the following:</p>
         <h4>Guide Questions:</h4>
-        <ul>
-            <li>Why is tool organization important in a workspace?</li>
-            <li style="margin-top: 10px;">How does checking tools before use improve work safety?</li>
-            <li style="margin-top: 10px;">What lesson did you learn from this topic that you can apply in real-life situations?</li>
-            <li style="margin-top: 10px;">Think of a time when you or someone else encountered a defective tool in a workplace, school, or home.</li>
-            <li style="margin-top: 10px;">What was the impact of using (or almost using) that defective tool?</li>
-            <li style="margin-top: 10px;">How could proper tool inspection have prevented the problem?</li>
-        <ul>
+
+            <form class="learning-form">
+                <label for="q1">1. Why is tool organization important in a workspace?</label>
+                <textarea id="q1" name="q1" placeholder="Type your answer here..."></textarea>
         
+                <label for="q2">2. How does checking tools before use improve work safety?</label>
+                <textarea id="q2" name="q2" placeholder="Type your answer here..."></textarea>
+        
+                <label for="q3">3. What lesson did you learn from this topic that you can apply in real-life situations?</label>
+                <textarea id="q3" name="q3" placeholder="Type your answer here..."></textarea>
+
+            </form>
+        <p><b>Think of a time when you or someone else encountered a defective tool in a workplace, school, or home.</b></p>
+
+        <form class="learning-form">
+            <label for="q4">4. What was the impact of using (or almost using) that defective tool?</label>
+            <textarea id="q4" name="q4" placeholder="Type your answer here..."></textarea>
+    
+            <label for="q5">5. How could proper tool inspection have prevented the problem?</label>
+            <textarea id="q5" name="q5" placeholder="Type your answer here..."></textarea>
+
+        </form>
      </div>
 
     <div class="bottom-line"></div>
