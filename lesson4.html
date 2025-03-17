@@ -493,13 +493,18 @@
         }
 
         .input-container {
-        display: flex;
-        flex-direction: column;
-        width: 90%;
-        max-width: 500px;
-        margin: 0 auto;
-        font-size: 1.2em;
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            max-width: 500px;
+            font-size: 1.2em;
+            
+            text-align: left; /* Ensures text inside is aligned left */
+            
+            margin-left: 0; /* Reset any automatic centering */
+            margin-right: auto; /* Pushes it to the left */
         }
+
 
         .input-container label {
             font-weight: bold;
@@ -557,6 +562,48 @@
             }
         }
 
+        .learning-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 700px;
+        margin: 0; /* Remove centering */
+        font-size: 1.0em;
+        text-align: left; /* Ensure left alignment */
+    }
+
+    .learning-form label {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .learning-form textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        border: 1px solid #D4A76A;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        resize: vertical; /* Allows users to expand the text area */
+    }
+
+    @media (max-width: 1024px) {
+        .learning-form {
+            margin: 0 auto; /* Center it on smaller screens */
+            width: 90%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .learning-form {
+            text-align: center; /* Center-align for smaller screens */
+        }
+
+        .learning-form textarea {
+            font-size: 0.6em;
+        }
+    }
+
 
 
 
@@ -585,7 +632,7 @@
         <p><b>Instruction:</b> A set of pictures will be provided with their corresponding number. Identify what type of protection is in the picture. Type your answer with its corresponding number on the text box </p>
         <div class="table-container">
             <img src="RecallAct.png" alt="Client Requests Table">
-            </div>
+            </div> <br>
     <!-- Responsive Input Fields -->
     <form class="input-container">
         <label for="answer1">1.</label>
@@ -825,15 +872,23 @@
             What I have learned?
         </div> 
         <p><span class="indented-first-word">Proper</span> maintenance and storage of hand tools are essential for ensuring their longevity, efficiency, and safety. Regular inspections, eco-friendly cleaning methods, and accurate documentation help prevent tool damage and reduce environmental impact. By following best practices, we can maintain tools effectively while promoting sustainability in our workspaces. 
-        <p><b>(In a sheet of paper, answer the following guide questions)</b></p>
+        <p><b>(Answer the following guide questions on the text-box)</b></p>
         <h4>Guide Questions:</h4>
-        <ol>
-            <li>Why is it important to maintain tools properly and store them efficiently?</li>
-            <li style="margin-top: 10px;">How can following proper maintenance and storage practices prevent workplace accidents?</li>
-            <li style="margin-top: 10px;">What steps can you personally take to minimize waste and practice environmental responsibility in tool maintenance? </li>
-            <li style="margin-top: 10px;">How did working with tools during this activity change your perspective on their care and organization? </li>
-        <br>
-        </ol>
+        <form class="learning-form">
+            <label for="q1">1. Why is it important to maintain tools properly and store them efficiently?</label>
+            <textarea id="q1" name="q1" placeholder="Type your answer here..."></textarea>
+    
+            <label for="q2">2. How can following proper maintenance and storage practices prevent workplace accidents?</label>
+            <textarea id="q2" name="q2" placeholder="Type your answer here..."></textarea>
+    
+            <label for="q3">3. What steps can you personally take to minimize waste and practice environmental responsibility in tool maintenance?</label>
+            <textarea id="q3" name="q3" placeholder="Type your answer here..."></textarea>
+    
+            <label for="q4">4. How did working with tools during this activity change your perspective on their care and organization?</label>
+            <textarea id="q4" name="q4" placeholder="Type your answer here..."></textarea>
+        </form>
+        </form>
+    </div>
      </div>
 
     <div class="bottom-line"></div>
